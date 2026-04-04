@@ -1,15 +1,10 @@
 from django.contrib.auth import login
-from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-
 from accounts.forms import AccountUserCreationForm
 
 
 # Create your views here.
-
-def home(request):
-    return HttpResponse("Hello, world.")
 
 class RegisterView(CreateView):
     template_name = "accounts/register.html"
