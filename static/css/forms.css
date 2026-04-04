@@ -1,0 +1,115 @@
+.form-container {
+    background: #eee;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-login {
+    flex: 0 0 25em;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 2em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+}
+
+.form-login fieldset {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 0.3em;
+}
+
+legend {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    border-bottom: 3px solid #16796F;
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-login label {
+    display: block;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.form-login input {
+    display: block;
+    width: 95%;
+    border: 2px solid #ccc;
+    border-radius: 0.3em;
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-login button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #16796F;
+    color:#fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+.form-login .form-field {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em;
+}
+
+.form-login label::after {
+    content: "*";
+    color: red;
+    padding: 0.3em;
+    display: inline-block;
+}
+
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1em;
+        min-height: auto;
+    }
+
+    .form-login {
+        flex: 1 1 100%;
+        padding: 1.2em;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    legend {
+        font-size: 1.4em;
+        padding-bottom: 1rem;
+    }
+
+    .form-login .form-field {
+        margin: 0.3em 0;
+    }
+
+    .form-login input {
+        padding: 0.8em 1em;
+        font-size: 1em;
+    }
+
+    .form-login button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1em;
+        border-radius: 10px;
+    }
+}

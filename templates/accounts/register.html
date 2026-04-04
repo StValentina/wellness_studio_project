@@ -1,19 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<h1>Registration</h1>
+{% block content %}
+    <div class="form-container">
+        <form action="" class="form-login" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Registration</legend>
+{#                {{ form.non_field_errors }}#}
 
-<form action="{% url 'register' %}?next={{ next }}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
+                <p class="form-field">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </p>
 
-</form>
+                <p class="form-field">
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                </p>
 
-</body>
-</html>
+                <p class="form-field">
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                </p>
+                {#                <p class="form-field">#}
+                {#                    <label for="email">Email</label>#}
+                {#                    <input type="email" id="email" required>#}
+                {#                </p>#}
+                {##}
+                {#                <p class="form-field">#}
+                {#                    <label for="password">Password</label>#}
+                {#                    <input type="password" id="password" required>#}
+                {#                </p>#}
+                {##}
+                {#                <p class="form-field">#}
+                {#                    <label for="confirm-password">Password confirmation:</label>#}
+                {#                    <input type="password" id="confirm-password" required>#}
+                {#                </p>#}
+
+                <div class="btn-container">
+                    <button type="submit">Register</button>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
+
