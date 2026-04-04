@@ -3,8 +3,8 @@
     <nav class="site-nav">
         <div class="container nav-container">
             <a class="nav-brand" href="{% url 'home' %}">
-                <img src="" alt="" class="nav-logo">
-                <span class="nav-title">Wellness Studio Platform</span>
+                <img src="{% static 'images/site-logo-1.png' %}" alt="Wellness Studio Logo" class="nav-logo">
+{#                <span class="nav-title">Wellness Studio Platform</span>#}
             </a>
 
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -33,4 +33,15 @@
             </div>
         </div>
     </nav>
+
+    <div class="header-content">
+        <div class="header-content-img">
+            <h1 class="header-title">Wellness Studio Platform</h1>
+            <p class="header-text">Find your balance. Book your next class. Transform your lifestyle.</p>
+            <div class="header-content-btn">
+                <button class="join-btn">Join Now</button>
+                <button class="explore-btn">Start Your Journey</button>
+            </div>
+        </div>
+    </div>
 </header>

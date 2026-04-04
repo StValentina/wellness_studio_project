@@ -22,7 +22,7 @@
 }
 
 .nav-logo {
-    height: 40px;
+    height: 60px;
     width: auto;
 }
 
@@ -76,9 +76,63 @@
 }
 
 .nav-link.active {
-    background-color: #148B4B;
+    background-color: #599D9C;
     color: #ffffff;
 }
+
+.header-content {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: url("/static/images/background_layout.jpg") center / cover no-repeat;
+}
+
+.header-content-img {
+    max-width: 700px;
+    width: 100%;
+}
+
+.header-title {
+    color: #16796F;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 900;
+    margin: 0 0 1rem 0;
+}
+
+.header-text {
+    color: #16796F;
+    font-size: 1.2rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.header-content-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.join-btn,
+.explore-btn {
+    padding: 0.75rem 1.25rem;
+    border-radius: 20px;
+    background-color: #16796F;
+    color: #ffffff;
+    border: none;
+    font-size: 1rem;
+}
+
+.join-btn:hover,
+.explore-btn:hover {
+    background-color: #599D9C;
+}
+
 
 @media (max-width: 768px) {
     .nav-toggle-label {
