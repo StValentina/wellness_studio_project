@@ -6,24 +6,36 @@
             {% csrf_token %}
             <fieldset>
                 <legend>Registration</legend>
-{#                {{ form.non_field_errors }}#}
+                {#                {{ form.non_field_errors }}#}
 
                 <p class="form-field">
                     {{ form.email.label_tag }}
                     {{ form.email }}
-                    {{ form.email.errors }}
+                    {% if form.email.errors %}
+                        <div class="error-message">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
                 </p>
 
                 <p class="form-field">
                     {{ form.password1.label_tag }}
                     {{ form.password1 }}
-                    {{ form.password1.errors }}
+                    {% if form.password1.errors %}
+                        <div class="error-message">
+                            {{ form.password1.errors }}
+                        </div>
+                    {% endif %}
                 </p>
 
                 <p class="form-field">
                     {{ form.password2.label_tag }}
                     {{ form.password2 }}
-                    {{ form.password2.errors }}
+                    {% if form.password2.errors %}
+                        <div class="error-message">
+                            {{ form.password2.errors }}
+                        </div>
+                    {% endif %}
                 </p>
 
                 <div class="btn-container">
