@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model, authenticate
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
+from accounts.models import Profile
 
 UserModel = get_user_model()
 
@@ -11,11 +12,6 @@ class AccountUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = UserModel
         fields = ('email',)
-
-
-class AccountChangeForm(UserChangeForm):
-    class Meta(UserChangeForm.Meta):
-        model = UserModel
 
 class LoginUserForm(forms.Form):
     email = forms.EmailField(
@@ -45,3 +41,14 @@ class LoginUserForm(forms.Form):
 
     def get_user(self):
         return self.user
+
+class AccountEditForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('first_name', 'last_name', 'profile_picture', 'bio')
+        widgets = {
+            'first_name': forms.TextInput(attrs={'label': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'label': 'Last Name'}),
+            'profile_picture': forms.FileInput(attrs={'label': 'Profile Picture'}),
+            'bio': forms.TextInput(attrs={'label': 'Bio'}),
+        }

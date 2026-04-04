@@ -1,4 +1,97 @@
+/*css for home.html*/
+
+.home-content {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: url("/static/images/background_layout.jpg") center / cover no-repeat;
+}
+
+.home-content-img {
+    max-width: 700px;
+    width: 100%;
+}
+
+.home-title {
+    color: #16796F;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 900;
+    margin: 0 0 1rem 0;
+}
+
+.home-text {
+    color: #16796F;
+    font-size: 1.2rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.home-content-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.join-btn,
+.explore-btn,
+.edit-profile-btn,
+.delete-profile-btn {
+    padding: 0.75rem 1.25rem;
+    border-radius: 20px;
+    background-color: #16796F;
+    color: #ffffff;
+    border: none;
+    font-size: 1rem;
+}
+
+.join-btn:hover,
+.explore-btn:hover,
+.edit-profile-btn:hover,
+.delete-profile-btn:hover {
+    background-color: #599D9C;
+    color: #ffffff;
+}
+
+/*css for profile information*/
+
+.profile-container {
+    width: 70%;
+    border-right: 2px solid #16796F;
+    border-bottom: 2px solid #16796F;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.profile-image {
+    border: 1px solid red;
+}
+
+.profile-info {
+    flex: 0 0 65%;
+    border: 1px solid red;
+}
+
+.profile-info-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+/*css for forms pages*/
+
 .form-container {
+    width: 100%;
     background: #eee;
     min-height: 90vh;
     display: flex;

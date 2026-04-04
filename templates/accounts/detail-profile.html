@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="profile-container">
+            <div class="profile-image">
+                {% if request.user.profile.profile_picture %}
+                    <img src="{{ request.user.profile.profile_picture.url }}" alt="Avatar" width="120">
+                {% else %}
+                    <img src="{% static 'images/avatar_icon.png' %}" alt="Avatar" width="120">
+                {% endif %}
+            </div>
+            <div class="profile-info">
+                <section>
+                    <h2>{{ request.user.role }}</h2>
+                    {% if request.user.first_name and request.user.last_name %}
+                        <h1>{{ request.user.profile.first_name }} {{ request.user.profile.last_name }}</h1>
+                    {% else %}
+                        <h1>None</h1>
+                    {% endif %}
+                </section>
+                <section>
+                    {% if request.user.profile.bio %}
+                        <p>Bio: {{ request.user.profile.bio }}</p>
+                    {% else %}
+                        <p>None</p>
+                    {% endif %}
+                </section>
+                <div class="profile-info-btn">
+                    <a href="#" class="edit-profile-btn">Edit Profile</a>
+                    <a href="#" class="delete-profile-btn">Delete Profile</a>
+                </div>
+            </div>
+
+    </div>
+{% endblock %}
+

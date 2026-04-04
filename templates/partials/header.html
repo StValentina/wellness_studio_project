@@ -19,13 +19,13 @@
                 <ul class="nav-list">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Services</a>
+                            <a class="nav-link" href="#">Services</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Create Project</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="{% url 'profile_detail' pk=user.pk %}">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
@@ -38,8 +38,6 @@
                             <a class="nav-link" href="{% url 'register' %}">Register</a>
                         </li>
                     {% endif %}
-
-
                 </ul>
             </div>
         </div>
