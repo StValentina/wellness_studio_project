@@ -4,7 +4,7 @@
         <div class="container nav-container">
             <a class="nav-brand" href="{% url 'home' %}">
                 <img src="{% static 'images/site-logo-1.png' %}" alt="Wellness Studio Logo" class="nav-logo">
-{#                <span class="nav-title">Wellness Studio Platform</span>#}
+                {#                <span class="nav-title">Wellness Studio Platform</span>#}
             </a>
 
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -17,31 +17,32 @@
 
             <div class="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Create Project</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Create Project</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                    {% endif %}
+
+
                 </ul>
             </div>
         </div>
     </nav>
 
-{#    <div class="header-content">#}
-{#        <div class="header-content-img">#}
-{#            <h1 class="header-title">Wellness Studio Platform</h1>#}
-{#            <p class="header-text">Find your balance. Book your next class. Transform your lifestyle.</p>#}
-{#            <div class="header-content-btn">#}
-{#                <button class="join-btn">Join Now</button>#}
-{#                <button class="explore-btn">Start Your Journey</button>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
 </header>

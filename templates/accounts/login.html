@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <form action="" class="form-login" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Login</legend>
+
+                <p class="form-field">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <div class="error-message">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
+                </p>
+
+                <p class="form-field">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                    {% if form.password.errors %}
+                        <div class="error-message">
+                            {{ form.password.errors }}
+                        </div>
+                    {% endif %}
+                </p>
+
+                <div class="btn-container">
+                    <button type="submit">Login</button>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
+
