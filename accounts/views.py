@@ -10,7 +10,6 @@ class RegisterView(CreateView):
     template_name = "accounts/register.html"
     form_class = AccountUserCreationForm
     success_url = reverse_lazy('home')
-    success_message = "Your profile was created successfully"
 
     def form_valid(self, form):
         result = super().form_valid(form)

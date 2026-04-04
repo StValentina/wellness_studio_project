@@ -11,31 +11,20 @@
                 <p class="form-field">
                     {{ form.email.label_tag }}
                     {{ form.email }}
+                    {{ form.email.errors }}
                 </p>
 
                 <p class="form-field">
                     {{ form.password1.label_tag }}
                     {{ form.password1 }}
+                    {{ form.password1.errors }}
                 </p>
 
                 <p class="form-field">
                     {{ form.password2.label_tag }}
                     {{ form.password2 }}
+                    {{ form.password2.errors }}
                 </p>
-                {#                <p class="form-field">#}
-                {#                    <label for="email">Email</label>#}
-                {#                    <input type="email" id="email" required>#}
-                {#                </p>#}
-                {##}
-                {#                <p class="form-field">#}
-                {#                    <label for="password">Password</label>#}
-                {#                    <input type="password" id="password" required>#}
-                {#                </p>#}
-                {##}
-                {#                <p class="form-field">#}
-                {#                    <label for="confirm-password">Password confirmation:</label>#}
-                {#                    <input type="password" id="confirm-password" required>#}
-                {#                </p>#}
 
                 <div class="btn-container">
                     <button type="submit">Register</button>
