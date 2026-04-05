@@ -2,7 +2,7 @@ from django.core.validators import BaseValidator
 
 
 class MaxFileSizeValidator(BaseValidator):
-    message = "File size should be less than %(limit_value)s MB"
+    message = "File size should be less than 5 MB"
     code = "file_too_large"
 
     def clean(self, file):

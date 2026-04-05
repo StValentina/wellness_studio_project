@@ -19,11 +19,13 @@
                 <ul class="nav-list">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
+                            <a class="nav-link" href="{% url 'services' %}">Services</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Create Project</a>
-                        </li>
+                        {% if request.user.profile.role == 'Host' %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'create-service' %}">Create Service</a>
+                            </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'detail-profile' pk=user.pk %}">Profile</a>
                         </li>

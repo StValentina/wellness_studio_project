@@ -71,6 +71,14 @@
 
 /*CSS FOR PROFILE INFORMATION*/
 
+.site-container {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3em;
+}
+
 .profile-container {
     width: 70%;
     border-right: 2px solid #16796F;
@@ -147,6 +155,7 @@ legend {
     display: block;
     font-weight: bold;
     font-size: 1em;
+    margin-bottom: 0.2rem;
 }
 
 .form-login input {
@@ -181,14 +190,15 @@ legend {
     margin: 0.5em;
 }
 
-.form-field-bio {
+.form-field-bio,
+.form-field-description {
     min-height: 140px;
     padding: 10px 12px;
     border-radius: 8px;
     resize: vertical;
 }
 
-.form-login label::after {
+.required-fld label::after {
     content: "*";
     color: red;
     padding: 0.3em;

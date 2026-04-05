@@ -59,4 +59,10 @@ class AccountEditForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if self.instance and self.instance.profile_picture:
-            self.fields['profile_picture'].disabled = True
+            filename = self.instance.profile_picture.name.split('/')[-1]
+            self.fields['profile_picture'].help_text = f"Current image: {filename}"
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     if self.instance and self.instance.profile_picture:
+    #         self.fields['profile_picture'].disabled = True

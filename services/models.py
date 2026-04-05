@@ -1,4 +1,6 @@
 from django.db import models
+from WellnessNewProject.validators import MaxFileSizeValidator
+
 
 # Create your models here.
 class Service(models.Model):
@@ -14,6 +16,7 @@ class Service(models.Model):
         upload_to='services/',
         blank=True,
         null=True,
+        validators=[MaxFileSizeValidator(5 * 1024 * 1024)]
     )
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

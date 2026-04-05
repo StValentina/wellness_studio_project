@@ -39,10 +39,6 @@ class LoginUserView(LoginView):
         login(self.request, user)
         return super().form_valid(form)
 
-    def form_invalid(self, form):
-        messages.error(self.request, "Invalid email or password.")
-        return super().form_invalid(form)
-
 def logout_user(request):
     logout(request)
     return redirect('home')
