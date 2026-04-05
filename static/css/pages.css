@@ -73,7 +73,7 @@
     color: #ffffff;
 }
 
-/*CSS FOR PROFILE INFORMATION*/
+/*CSS FOR INFORMATION*/
 
 .site-container {
     min-height: 60vh;
@@ -124,13 +124,32 @@
 
 /*CSS SERVICES*/
 
-.list-hdr {
-    margin-top: 10px;
-    text-align: center;
+.title-delete-ctr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
 }
-.list-ctr {
-    border: 1px solid red;
+
+.delete-serv-btn {
+    padding: 0.5rem;
+    border-radius: 20px;
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    font-size: 0.8rem;
 }
+
+.delete-serv-btn:hover {
+    background-color: darkred;
+    color: #ffffff;
+}
+
+/*.list-hdr {*/
+/*    margin-top: 10px;*/
+/*    text-align: center;*/
+/*}*/
+
 
 /*CSS FOR FORMS*/
 

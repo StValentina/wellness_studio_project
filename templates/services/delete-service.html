@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
     <div class="form-container">
-        <form action="{% url 'delete-profile' pk=user.pk %}" class="form-login profile-dlt" method="post">
-            <h1>Delete Profile</h1>
+        <form action="{% url 'delete-service' pk=service.pk %}" class="form-login profile-dlt" method="post">
+            <h1>Delete Practice</h1>
             {% csrf_token %}
-            <p><strong>Are you sure you want to delete your profile?</strong></p>
+            <p><strong>Are you sure you want to delete "{{ service.service_title }}"?</strong></p>
             <div class="profile-info-btn">
                 <a href="#" class="yes-btn" onclick="this.closest('form').submit(); return false;">
                     Yes
                 </a>
-                <a href="{% url 'detail-profile' pk=user.pk %}" class="no-btn">No</a>
+                <a href="{% url 'services' %}" class="no-btn">No</a>
             </div>
         </form>
     </div>

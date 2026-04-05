@@ -13,7 +13,12 @@
                     {% endif %}
                 </div>
                 <div class="profile-info">
-                    <h1>{{ service.service_title }}</h1>
+                    <div class="title-delete-ctr">
+                        <h1>{{ service.service_title }}</h1>
+                        {% if request.user.profile.role == 'Host' %}
+                            <a href="{% url 'delete-service' pk=service.pk %}" class="delete-serv-btn">Delete</a>
+                        {% endif %}
+                    </div>
                     <p> {{ service.service_description }}</p>
                     <div class="profile-info-btn">
                         {% if request.user.profile.role == 'Host' %}

@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import request
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from WellnessNewProject.mixins import HostOnlyMixin
 from services.forms import ServiceCreateForm
@@ -15,7 +15,7 @@ class ServiceListView(ListView):
     model = Service
     template_name = 'services/list-services.html'
     context_object_name = 'services'
-    ordering = '-created_at'
+    ordering = 'created_at'
 
     def get_queryset(self):
         queryset = Service.objects.all()
@@ -35,4 +35,9 @@ class ServiceEditView(LoginRequiredMixin, HostOnlyMixin, UpdateView):
     model = Service
     form_class = ServiceCreateForm
     template_name = 'services/edit-service.html'
+    success_url = reverse_lazy('services')
+
+class ServiceDeleteView(LoginRequiredMixin, HostOnlyMixin, DeleteView):
+    model = Service
+    template_name = 'services/delete-service.html'
     success_url = reverse_lazy('services')
