@@ -6,6 +6,7 @@ from django.utils import timezone
 
 from accounts.choices import RoleChoices
 from accounts.manager import AccountUserManager
+from WellnessNewProject.validators import MaxFileSizeValidator
 
 
 # Create your models here.
@@ -53,6 +54,7 @@ class Profile(models.Model):
         blank=True,
         null=True,
         upload_to="profile_pictures/",
+        validators=[MaxFileSizeValidator(5 * 1024 * 1024)]
     )
 
     bio = models.TextField(

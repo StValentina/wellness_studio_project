@@ -3,6 +3,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.shortcuts import redirect, get_object_or_404, render
+from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -37,6 +38,10 @@ class LoginUserView(LoginView):
         user = form.get_user()
         login(self.request, user)
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Invalid email or password.")
+        return super().form_invalid(form)
 
 def logout_user(request):
     logout(request)

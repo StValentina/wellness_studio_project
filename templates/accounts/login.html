@@ -10,22 +10,17 @@
                 <p class="form-field">
                     {{ form.email.label_tag }}
                     {{ form.email }}
-                    {% if form.email.errors %}
-                        <div class="error-message">
-                            {{ form.email.errors }}
-                        </div>
-                    {% endif %}
                 </p>
 
                 <p class="form-field">
                     {{ form.password.label_tag }}
                     {{ form.password }}
-                    {% if form.password.errors %}
-                        <div class="error-message">
-                            {{ form.password.errors }}
-                        </div>
-                    {% endif %}
                 </p>
+                {% if form.non_field_errors %}
+                    <div class="error-message">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
 
                 <div class="btn-container">
                     <button type="submit">Login</button>
