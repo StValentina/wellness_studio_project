@@ -1,4 +1,4 @@
-/*css for home.html*/
+/*CSS FOR home.html*/
 
 .home-content {
     min-height: 100vh;
@@ -42,7 +42,9 @@
 .join-btn,
 .explore-btn,
 .edit-profile-btn,
-.delete-profile-btn {
+.delete-profile-btn,
+.yes-btn,
+.no-btn {
     padding: 0.75rem 1.25rem;
     border-radius: 20px;
     background-color: #16796F;
@@ -51,15 +53,23 @@
     font-size: 1rem;
 }
 
+/*BUTTONS IN a-tag*/
+
 .join-btn:hover,
 .explore-btn:hover,
 .edit-profile-btn:hover,
-.delete-profile-btn:hover {
+.no-btn:hover  {
     background-color: #599D9C;
     color: #ffffff;
 }
 
-/*css for profile information*/
+.delete-profile-btn:hover,
+.yes-btn:hover {
+    background-color: darkred;
+    color: #ffffff;
+}
+
+/*CSS FOR PROFILE INFORMATION*/
 
 .profile-container {
     width: 70%;
@@ -72,20 +82,14 @@
     justify-content: space-evenly;
 }
 
-/*.profile-image {*/
-/*    border: 1px solid red;*/
-/*}*/
-
 .profile-image img {
     max-width: 60%;
     border-radius: 50%;
-    /*border: 1px solid red;*/
 }
 
 .profile-info {
     margin-right: 20px;
     flex: 0 0 65%;
-    /*border: 1px solid red;*/
 }
 
 .profile-info-btn {
@@ -117,6 +121,10 @@
     border-radius: 3px;
     padding: 2em;
     box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+}
+
+.profile-dlt {
+    background-color: #f39393;
 }
 
 .form-login fieldset {

@@ -1,5 +1,5 @@
 from django.urls import path, include
-from accounts.views import RegisterView, LoginUserView, logout_user, AccountDetailView, AccountEditView
+from accounts.views import RegisterView, LoginUserView, logout_user, AccountDetailView, AccountEditView, AccountDeleteView
 
 urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('', include([
         path('<int:pk>/detail/', AccountDetailView.as_view(), name='detail-profile'),
         path('<int:pk>/edit/', AccountEditView.as_view(), name='edit-profile'),
+        path('<int:pk>/delete/', AccountDeleteView.as_view(), name='delete-profile'),
     ]))
 ]
