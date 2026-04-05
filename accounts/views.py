@@ -1,11 +1,13 @@
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView
 from accounts.forms import AccountUserCreationForm, LoginUserForm
 from accounts.forms import AccountEditForm
 from accounts.models import Profile
@@ -52,4 +54,10 @@ class AccountDetailView(LoginRequiredMixin, DetailView):
 class AccountEditView(LoginRequiredMixin, UpdateView):
     form_class = AccountEditForm
     template_name = 'accounts/edit-profile.html'
-    success_url = reverse_lazy('home')
+
+    def get_queryset(self):
+        user_pk = self.kwargs.get('pk')
+        return Profile.objects.filter(pk=user_pk)
+
+    def get_success_url(self):
+        return reverse("detail-profile", kwargs={"pk": self.object.pk})

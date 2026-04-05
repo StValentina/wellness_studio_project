@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <form action="" class="form-login" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Edit User Profile</legend>
+
+                <p class="form-field">
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                    {% if form.first_name.errors %}
+                        <div class="error-message">
+                            {{ form.first_name.errors }}
+                        </div>
+                    {% endif %}
+                </p>
+
+                <p class="form-field">
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name }}
+                    {% if form.last_name.errors %}
+                        <div class="error-message">
+                            {{ form.last_name.errors }}
+                        </div>
+                    {% endif %}
+                </p>
+
+                <p class="form-field">
+                    {{ form.profile_picture.label_tag }}
+                    {{ form.profile_picture }}
+                    {% if form.profile_picture.errors %}
+                        <div class="error-message">
+                            {{ form.profile_picture.errors }}
+                        </div>
+                    {% endif %}
+                </p>
+
+                <p class="form-field-bio">
+                    {{ form.bio.label_tag }}
+                    {{ form.bio }}
+                    {% if form.bio.errors %}
+                        <div class="error-message">
+                            {{ form.bio.errors }}
+                        </div>
+                    {% endif %}
+                </p>
+
+                <div class="btn-container">
+                    <button type="submit">Submit</button>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
+

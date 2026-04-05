@@ -50,5 +50,13 @@ class AccountEditForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'label': 'First Name'}),
             'last_name': forms.TextInput(attrs={'label': 'Last Name'}),
             'profile_picture': forms.FileInput(attrs={'label': 'Profile Picture'}),
-            'bio': forms.TextInput(attrs={'label': 'Bio'}),
+            'bio': forms.Textarea(attrs={
+                'class': 'form-field-bio',
+                'label': 'Bio',
+            }),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.profile_picture:
+            self.fields['profile_picture'].disabled = True
