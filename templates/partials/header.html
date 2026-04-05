@@ -17,13 +17,13 @@
 
             <div class="nav-menu">
                 <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'services' %}">Practices</a>
+                    </li>
                     {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'services' %}">Services</a>
-                        </li>
                         {% if request.user.profile.role == 'Host' %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'create-service' %}">Create Service</a>
+                                <a class="nav-link" href="{% url 'create-service' %}">Create Practice</a>
                             </li>
                         {% endif %}
                         <li class="nav-item">

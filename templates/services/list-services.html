@@ -1,11 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>Service List Here</h1>
-    <div>
-        {% for service in services %}
-            <h3>{{ service.service_title }}</h3>
-        {% endfor %}
-    </div>
-
+    {% for service in services %}
+        <div class="services-container">
+            <div class="profile-container">
+                <div class="profile-image">
+                    {% if service.image %}
+                        <img src="{{ service.image.url }}" alt="Avatar">
+                    {% else %}
+                        <img src="{% static 'images/lotos-service-image.jpg' %}" alt="Avatar">
+                    {% endif %}
+                </div>
+                <div class="profile-info">
+                    <h1>{{ service.service_title }}</h1>
+                    <p> {{ service.service_description }}</p>
+                    <div class="profile-info-btn">
+                        {% if request.user.profile.role == 'Host' %}
+                            <a href="{% url 'edit-service' pk=service.pk %}" class="details-btn">Edit Practice</a>
+                        {% endif %}
+                        <a href="#" class="booking-btn">Book for Practice</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

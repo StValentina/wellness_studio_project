@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <form action="" class="form-login" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Edit Service</legend>
+
+                <p class="form-field">
+                    {{ form.service_title.label_tag }}
+                    {{ form.service_title }}
+                </p>
+
+                <p class="form-field-description required-fld">
+                    {{ form.service_description.label_tag }}
+                    {{ form.service_description }}
+                </p>
+
+                <p class="form-field">
+                    {{ form.image.label_tag }}
+                    {{ form.image }}
+                    {{ form.image.help_text }}
+                    {% if form.image.errors %}
+                        <div class="error-message">
+                            {{ form.image.errors }}
+                        </div>
+                    {% endif %}
+                </p>
+
+                <div class="btn-container">
+                    <button type="submit">Edit</button>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

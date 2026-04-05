@@ -1,5 +1,6 @@
 from django.db import models
 from WellnessNewProject.validators import MaxFileSizeValidator
+from accounts.models import AccountUser
 
 
 # Create your models here.
