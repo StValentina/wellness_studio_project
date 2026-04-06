@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% include 'partials/header-manage-page.html' %}
+    <section class="manage-pg-ctr">
+        <div class="manage-ctr">
+            <h3>Practices</h3>
+            {% for service in services %}
+                <h4>{{ service.service_title }}</h4>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="manage-ctr">
+            <h3>Studio Classes</h3>
+        </div>
+        <hr>
+        <div class="manage-ctr">
+            <h3>Tags</h3>
+        </div>
+    </section>
+    <section class="manage-info-ctr">
+        <h3>Information Section</h3>
+
+    </section>
+{% endblock %}

@@ -80,6 +80,33 @@
     color: #ffffff;
 }
 
+/*HEADER MANAGE PAGE*/
+
+.container-manage-pg {
+    width: min(980px, 70%);
+    margin: 0 auto;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.navbar {
+    margin-top: 10px;
+    background: #5FB0A1;
+    border-radius: 999px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-list-manage-page {
+    display: flex;
+    align-items: center;
+    gap: 7rem;
+}
 
 @media (max-width: 768px) {
     .nav-toggle-label {

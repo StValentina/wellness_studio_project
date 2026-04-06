@@ -22,8 +22,11 @@
                     </li>
                     {% if user.is_authenticated %}
                         {% if request.user.profile.role == 'Host' %}
+{#                            <li class="nav-item">#}
+{#                                <a class="nav-link" href="{% url 'create-service' %}">Create Practice</a>#}
+{#                            </li>#}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'create-service' %}">Create Practice</a>
+                                <a class="nav-link" href="{% url 'manage_page' %}">Manage Page</a>
                             </li>
                         {% endif %}
                         <li class="nav-item">

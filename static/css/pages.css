@@ -73,7 +73,7 @@
     color: #ffffff;
 }
 
-/*CSS FOR INFORMATION*/
+/*CSS FOR PROFILE INFORMATION*/
 
 .site-container {
     min-height: 60vh;
@@ -145,10 +145,46 @@
     color: #ffffff;
 }
 
-/*.list-hdr {*/
-/*    margin-top: 10px;*/
-/*    text-align: center;*/
-/*}*/
+.nav-link-mng-pg.active {
+    background-color: #599D9C;
+    color: #ffffff;
+}
+
+/*MANAGE PAGE*/
+
+.manage-pg-ctr {
+    border: 1px solid red;
+    margin-top: 75px;
+    min-height: 90vh;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 15px;
+    padding: 1em;
+}
+.manage-ctr {
+    border: 1px solid red;
+    min-height: 50%;
+    width: 50%;
+}
+
+hr {
+  width: 4px;
+  border: none;
+  background-image: linear-gradient(to bottom, transparent, #16796F, transparent);
+    margin: 0;
+}
+
+.manage-info-ctr {
+    border: 1px solid red;
+    margin: 10px 0;
+    min-height: 70vh;
+}
+
+h3 {
+    text-align: center;
+    color: #16796F;
+}
 
 
 /*CSS FOR FORMS*/
