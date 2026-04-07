@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for class in classes %}
+        {{ class.class_title }}
+    {% endfor %}
+
+{% endblock %}
+

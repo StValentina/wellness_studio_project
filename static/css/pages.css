@@ -302,8 +302,8 @@ legend {
 .form-create-class {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 15px;
+    justify-content: space-around;
+    gap: 10px;
 }
 
 .select-field select{

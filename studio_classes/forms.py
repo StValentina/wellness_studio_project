@@ -1,5 +1,5 @@
 from django import forms
-
+from accounts.models import AccountUser
 from studio_classes.models import StudioClass, Tag
 
 
@@ -16,9 +16,15 @@ class StudioClassForm(forms.ModelForm):
                 'label': 'Studio Class Description',
             }),
             'level': forms.Select(),
-            'tags': forms.Select(),
+            'tags': forms.SelectMultiple(),
             'instructor': forms.Select(),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['instructor'].queryset = AccountUser.objects.filter(
+            profile__role='instructor'
+        )
 
 class StudioClassDeleteForm(forms.ModelForm):
     class Meta:

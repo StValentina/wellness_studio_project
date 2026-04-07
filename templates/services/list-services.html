@@ -21,6 +21,7 @@
                     </div>
                     <p> {{ service.service_description }}</p>
                     <div class="profile-info-btn">
+                        <a href="{% url 'service-classes' pk=service.pk %}" class="details-btn">See Classes</a>
                         {% if request.user.profile.role == 'Host' %}
                             <a href="{% url 'edit-service' pk=service.pk %}" class="details-btn">Edit Practice</a>
                         {% endif %}

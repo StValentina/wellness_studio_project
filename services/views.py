@@ -7,6 +7,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from WellnessNewProject.mixins import HostOnlyMixin
 from services.forms import ServiceCreateForm
 from services.models import Service
+from studio_classes.models import StudioClass
 
 
 # Create your views here.
@@ -41,3 +42,12 @@ class ServiceDeleteView(LoginRequiredMixin, HostOnlyMixin, DeleteView):
     model = Service
     template_name = 'services/delete-service.html'
     success_url = reverse_lazy('services')
+
+class ServiceClassesView(ListView):
+    model = StudioClass
+    template_name = 'services/service_classes.html'
+    context_object_name = 'classes'
+
+    def get_queryset(self):
+        service_id = self.kwargs['pk']
+        return StudioClass.objects.filter(studio_class_service=service_id)
