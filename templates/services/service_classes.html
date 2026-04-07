@@ -3,8 +3,37 @@
 {% block content %}
 
     {% for class in classes %}
-        {{ class.class_title }}
+
+        <div class="class-outer-container">
+            <div class="class-container">
+                <div class="class-title">
+                    <h2>{{ class.class_title }}</h2>
+                    <p>{{ class.instructor.profile.get_full_name }}</p>
+                </div>
+
+                <div class="profile-image">
+                    <ul class="list-class-info">
+                        <li>Level: {{ class.level }}</li>
+                        <li>Start Time: {{ class.start_time }}</li>
+                        <li>Duration in Minutes: {{ class.duration_minutes }}</li>
+                        <li>Capacity: {{ class.capacity }}</li>
+                        <li>Hall Number: {{ class.hall_number }}</li>
+                        <li>Price: {{ class.price }}</li>
+                    </ul>
+                </div>
+                <div class="class-info">
+                    <p>{{ class.class_description }}</p>
+                    <p>Tags: {% for tag in class.tags.all %}
+                        {{ tag.name }}
+                    {% endfor %}</p>
+
+                </div>
+            </div>
+            <a href="#" class="booking-btn">Book for Class</a>
+        </div>
     {% endfor %}
+
+
 
 {% endblock %}
 

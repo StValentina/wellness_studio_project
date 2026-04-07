@@ -186,6 +186,39 @@ h3 {
     color: #16796F;
 }
 
+/*STUDIO CLASSES*/
+
+.class-title {
+    color: #16796F;
+    font-size: 20px;
+}
+.class-info {
+    margin-right: 10px;
+    flex: 0 0 35%;
+}
+
+.class-outer-container {
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
+}
+
+.class-container {
+    width: 70%;
+    border-left: 2px solid #16796F;
+    border-bottom: 2px solid #16796F;
+    border-bottom-left-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.list-class-info li {
+    line-height: 1.5;
+}
 
 /*CSS FOR FORMS*/
 

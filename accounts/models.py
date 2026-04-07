@@ -74,9 +74,7 @@ class Profile(models.Model):
         on_delete=models.CASCADE,
     )
 
-    @property
-    def full_name(self):
+    def get_full_name(self):
         if self.first_name and self.last_name:
             return f'{self.first_name} {self.last_name}'
-
         return self.first_name or self.last_name
