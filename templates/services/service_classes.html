@@ -1,39 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% if classes %}
+        {% for class in classes %}
 
-    {% for class in classes %}
+            <div class="class-outer-container">
+                <div class="class-container">
 
-        <div class="class-outer-container">
-            <div class="class-container">
-                <div class="class-title">
-                    <h2>{{ class.class_title }}</h2>
-                    <p>{{ class.instructor.profile.get_full_name }}</p>
+                    <div class="class-title">
+                        {% if not class %}
+                            <h2>There are no classes for this practice yet!</h2>
+                        {% endif %}
+                        <h2>{{ class.class_title }}</h2>
+                        <p>{{ class.instructor.profile.get_full_name }}</p>
+                    </div>
+
+                    <div class="profile-image">
+                        <ul class="list-class-info">
+                            <li>Level: {{ class.level }}</li>
+                            <li>Start Time: {{ class.start_time }}</li>
+                            <li>Duration in Minutes: {{ class.duration_minutes }}</li>
+                            <li>Capacity: {{ class.capacity }}</li>
+                            <li>Hall Number: {{ class.hall_number }}</li>
+                            <li>Price: {{ class.price }}</li>
+                        </ul>
+                    </div>
+                    <div class="class-info">
+                        <p>{{ class.class_description }}</p>
+                        <p>Tags: {% for tag in class.tags.all %}
+                            {{ tag.name }}
+                        {% endfor %}</p>
+                    </div>
                 </div>
-
-                <div class="profile-image">
-                    <ul class="list-class-info">
-                        <li>Level: {{ class.level }}</li>
-                        <li>Start Time: {{ class.start_time }}</li>
-                        <li>Duration in Minutes: {{ class.duration_minutes }}</li>
-                        <li>Capacity: {{ class.capacity }}</li>
-                        <li>Hall Number: {{ class.hall_number }}</li>
-                        <li>Price: {{ class.price }}</li>
-                    </ul>
-                </div>
-                <div class="class-info">
-                    <p>{{ class.class_description }}</p>
-                    <p>Tags: {% for tag in class.tags.all %}
-                        {{ tag.name }}
-                    {% endfor %}</p>
-
+                <div class="host-buttons-ctr">
+                    <a href="#" class="booking-btn">Book for Class</a>
+                    {% if request.user.profile.role == 'Host' %}
+                        <a href="{% url 'edit-class' pk=class.pk %}" class="general-btn">Edit Class</a>
+                        <a href="{% url 'delete-class' pk=class.pk %}" class="delete-serv-btn">Delete Class</a>
+                    {% endif %}
                 </div>
             </div>
-            <a href="#" class="booking-btn">Book for Class</a>
+        {% endfor %}
+
+    {% else %}
+        <div class="class-outer-container">
+        <div class="class-container">
+            <div class="class-title">
+                <h2>There are no classes for this practice yet!</h2>
+            </div>
         </div>
-    {% endfor %}
-
-
+    {% endif %}
 
 {% endblock %}
 

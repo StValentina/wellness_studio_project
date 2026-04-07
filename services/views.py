@@ -51,3 +51,4 @@ class ServiceClassesView(ListView):
     def get_queryset(self):
         service_id = self.kwargs['pk']
         return StudioClass.objects.filter(studio_class_service=service_id)
+

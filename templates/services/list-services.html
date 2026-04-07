@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+    {% if request.user.profile.role == 'Host' %}
+        {% include 'partials/header-manage-page.html' %}
+    {% endif %}
     {% for service in services %}
         <div class="services-container">
             <div class="profile-container">
@@ -21,9 +24,9 @@
                     </div>
                     <p> {{ service.service_description }}</p>
                     <div class="profile-info-btn">
-                        <a href="{% url 'service-classes' pk=service.pk %}" class="details-btn">See Classes</a>
+                        <a href="{% url 'service-classes' pk=service.pk %}" class="general-btn">See Classes</a>
                         {% if request.user.profile.role == 'Host' %}
-                            <a href="{% url 'edit-service' pk=service.pk %}" class="details-btn">Edit Practice</a>
+                            <a href="{% url 'edit-service' pk=service.pk %}" class="general-btn">Edit Practice</a>
                         {% endif %}
                     </div>
                 </div>

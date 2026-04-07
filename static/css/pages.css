@@ -47,7 +47,7 @@
 .delete-profile-btn,
 .yes-btn,
 .no-btn,
-.details-btn,
+.general-btn,
 .booking-btn {
     padding: 0.75rem 1.25rem;
     border-radius: 20px;
@@ -61,7 +61,7 @@
 .explore-btn:hover,
 .edit-profile-btn:hover,
 .no-btn:hover,
-.details-btn:hover,
+.general-btn:hover,
 .booking-btn:hover {
     background-color: #599D9C;
     color: #ffffff;
@@ -155,7 +155,7 @@
 .manage-pg-ctr {
     border: 1px solid red;
     margin-top: 75px;
-    min-height: 90vh;
+    min-height: 40vh;
     display: flex;
     align-items: stretch;
     justify-content: center;
@@ -218,6 +218,17 @@ h3 {
 
 .list-class-info li {
     line-height: 1.5;
+}
+
+.host-buttons-ctr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.host-buttons-ctr a {
+    margin-top: 5px;
 }
 
 /*CSS FOR FORMS*/

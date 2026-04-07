@@ -1,11 +1,15 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% extends 'base.html' %}
 
 {% block content %}
     <div class="form-container">
-        <form action="{% url 'delete-service' pk=service.pk %}" class="form-login profile-dlt" method="post">
+        <form action="{% url 'delete-class' pk=studioclass.pk %}" class="form-login profile-dlt" method="post">
             <h1>Delete Practice</h1>
             {% csrf_token %}
-            <p><strong>Are you sure you want to delete "{{ service.service_title }}"?</strong></p>
+            <p><strong>Are you sure you want to delete "{{ studioclass.class_title }}"?</strong></p>
             <div class="profile-info-btn">
                 <a href="#" class="yes-btn" onclick="this.closest('form').submit(); return false;">
                     Yes
@@ -14,4 +18,9 @@
             </div>
         </form>
     </div>
-{% endblock %}
+{% endblock %}</title>
+</head>
+<body>
+
+</body>
+</html>
