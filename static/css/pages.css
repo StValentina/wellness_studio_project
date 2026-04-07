@@ -270,6 +270,7 @@ legend {
 
 .form-field-bio,
 .form-field-description {
+    border-color: #CCCCCC;
     min-height: 140px;
     padding: 10px 12px;
     border-radius: 8px;
@@ -291,6 +292,24 @@ legend {
     margin-top: 6px;
     border-radius: 4px;
     font-size: 0.9rem;
+}
+
+.create-class {
+    margin: 10px 0;
+    flex: 0 0 50em;
+}
+
+.form-create-class {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.select-field select{
+    padding: 5px;
+    border-color: #CCCCCC;
+    border-radius: 5px;
 }
 
 @media (max-width: 600px) {

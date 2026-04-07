@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <form action="" class="form-login create-class" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Create Studio Class</legend>
+                <div class="form-create-class">
+                    <div class="form-left-column">
+                        <p class="form-field required-fld">
+                            {{ form.class_title.label_tag }}
+                            {{ form.class_title }}
+                        </p>
+
+                        <p class="form-field-description required-fld">
+                            {{ form.class_description.label_tag }}
+                            {{ form.class_description }}
+                        </p>
+
+                        <p class="form-field required-fld select-field">
+                            {{ form.level.label_tag }}
+                            {{ form.level }}
+                        </p>
+                        <p class="form-field required-fld select-field">
+                            {{ form.studio_class_service.label_tag }}
+                            {{ form.studio_class_service }}
+                        </p>
+
+                    </div>
+
+                    <div class="form-right-column">
+                        <p class="form-field required-fld">
+                            {{ form.start_time.label_tag }}
+                            {{ form.start_time }}
+                        </p>
+
+                        <p class="form-field required-fld">
+                            {{ form.duration_minutes.label_tag }}
+                            {{ form.duration_minutes }}
+                        </p>
+
+                        <p class="form-field required-fld">
+                            {{ form.hall_number.label_tag }}
+                            {{ form.hall_number }}
+                        </p>
+
+                        <p class="form-field required-fld">
+                            {{ form.capacity.label_tag }}
+                            {{ form.capacity }}
+                        </p>
+
+                        <p class="form-field required-fld">
+                            {{ form.price.label_tag }}
+                            {{ form.price }}
+                        </p>
+
+                        <p class="form-field required-fld select-field">
+                            {{ form.tags.label_tag }}
+                            {{ form.tags }}
+                        </p>
+                        <p class="form-field required-fld select-field">
+                            {{ form.instructor.label_tag }}
+                            {{ form.instructor }}
+                        </p>
+                    </div>
+                    {% if form.errors %}
+                        <div class="form-errors">
+                            {{ form.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <div class="btn-container">
+                    <button type="submit">Create</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
