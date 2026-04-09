@@ -153,8 +153,7 @@
 /*MANAGE PAGE*/
 
 .manage-pg-ctr {
-    border: 1px solid red;
-    margin-top: 75px;
+    margin-top: 70px;
     min-height: 60vh;
     display: flex;
     align-items: stretch;
@@ -162,28 +161,68 @@
     gap: 15px;
     padding: 1em;
 }
+
 .manage-ctr {
-    border: 1px solid red;
     min-height: 50%;
     width: 50%;
 }
 
 hr {
-  width: 4px;
-  border: none;
-  background-image: linear-gradient(to bottom, transparent, #16796F, transparent);
+    width: 4px;
+    border: none;
+    background-image: linear-gradient(to bottom, transparent, #16796F, transparent);
     margin: 0;
-}
-
-.manage-info-ctr {
-    border: 1px solid red;
-    margin: 10px 0;
-    min-height: 70vh;
 }
 
 h3 {
     text-align: center;
     color: #16796F;
+}
+
+.manage-card,
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 2px 5px;
+    border: none;
+    border-radius: 50px;
+    /*font-weight: bold;*/
+}
+
+.details {
+    background-color: #16796F;
+    color: #fff;
+}
+
+.details:hover {
+    background-color: #599D9C;
+    color: #fff;
+}
+
+.edit {
+    background-color: chocolate;
+    color: #fff;
+}
+
+.edit:hover {
+    background-color: orange;
+    color: #fff;
+}
+
+.delete {
+    background-color: darkred;
+    color: #fff;
+}
+
+.delete:hover {
+    background-color: red;
+    color: #fff;
 }
 
 /*STUDIO CLASSES*/
@@ -192,6 +231,7 @@ h3 {
     color: #16796F;
     font-size: 20px;
 }
+
 .class-info {
     margin-right: 10px;
     flex: 0 0 35%;
@@ -250,7 +290,7 @@ h3 {
     background-color: #fff;
     border-radius: 3px;
     padding: 2em;
-    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
 }
 
 .profile-dlt {
@@ -300,7 +340,7 @@ legend {
     border: none;
     border-radius: 20px;
     background-color: #16796F;
-    color:#fff;
+    color: #fff;
     font-weight: bold;
     font-size: 1.2em;
     margin-top: 1em;
@@ -350,7 +390,7 @@ legend {
     gap: 10px;
 }
 
-.select-field select{
+.select-field select {
     padding: 5px;
     border-color: #CCCCCC;
     border-radius: 5px;
