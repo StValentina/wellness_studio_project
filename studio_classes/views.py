@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 
 from WellnessNewProject.mixins import HostOnlyMixin
+from bookings.models import Booking
 from studio_classes.forms import StudioClassForm, TagsForm
 from studio_classes.models import StudioClass, Tag
 

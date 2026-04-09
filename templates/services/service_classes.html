@@ -2,54 +2,64 @@
 
 {% block content %}
     {% if classes %}
-        {% for class in classes %}
+        {% for studio_class in classes %}
 
             <div class="class-outer-container">
                 <div class="class-container">
 
                     <div class="class-title">
-                        <h2>{{ class.class_title }}</h2>
-                        <a href="{% url 'detail-profile' class.instructor.profile.user.pk %}">
-                            {{ class.instructor.profile.get_full_name }}
+                        <h2>{{ studio_class.class_title }}</h2>
+                        <a href="{% url 'detail-profile' studio_class.instructor.profile.user.pk %}">
+                            {{ studio_class.instructor.profile.get_full_name }}
 
                         </a>
                     </div>
 
                     <div class="profile-image">
                         <ul class="list-class-info">
-                            <li>Level: {{ class.level }}</li>
-                            <li>Start Time: {{ class.start_time }}</li>
-                            <li>Duration in Minutes: {{ class.duration_minutes }}</li>
-                            <li>Capacity: {{ class.capacity }}</li>
-                            <li>Hall Number: {{ class.hall_number }}</li>
-                            <li>Price: {{ class.price }}</li>
+                            <li>Level: {{ studio_class.level }}</li>
+                            <li>Start Time: {{ studio_class.start_time }}</li>
+                            <li>Duration in Minutes: {{ studio_class.duration_minutes }}</li>
+                            <li>Capacity: {{ studio_class.capacity }}</li>
+                            <li>Hall Number: {{ studio_class.hall_number }}</li>
+                            <li>Price: {{ studio_class.price }}</li>
                         </ul>
                     </div>
                     <div class="class-info">
-                        <p>{{ class.class_description }}</p>
-                        <p>Tags: {% for tag in class.tags.all %}
+                        <p>{{ studio_class.class_description }}</p>
+                        <p>Tags: {% for tag in studio_class.tags.all %}
                             {{ tag.name }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}</p>
                     </div>
                 </div>
                 <div class="host-buttons-ctr">
-                    <a href="#" class="booking-btn">Book for Class</a>
-                    {#                    {% if request.user.profile.role == 'Host' %}#}
-                    {#                        <a href="{% url 'edit-class' pk=class.pk %}" class="general-btn">Edit Class</a>#}
-                    {#                        <a href="{% url 'delete-class' pk=class.pk %}" class="delete-serv-btn">Delete Class</a>#}
-                    {#                    {% endif %}#}
+                    {% if user.is_authenticated %}
+                        {% if studio_class.pk in booked_class_ids %}
+                            <form method="post" action="{% url 'cancel-booking' studio_class.pk %}">
+                                {% csrf_token %}
+                                <button type="submit" class="booking-btn">Cancel booking</button>
+                            </form>
+                        {% else %}
+                            <form method="post" action="{% url 'book-class' studio_class.pk %}">
+                                {% csrf_token %}
+                                <button type="submit" class="booking-btn">Book for Class</button>
+                            </form>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'login-user' %}">Login</a>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
 
     {% else %}
         <div class="class-outer-container">
-        <div class="class-container">
-            <div class="class-title">
-                <h2>There are no classes for this practice yet!</h2>
+            <div class="class-container">
+                <div class="class-title">
+                    <h2>There are no classes for this practice yet!</h2>
+                </div>
             </div>
         </div>
     {% endif %}
 
 {% endblock %}
-
