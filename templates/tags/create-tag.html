@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container">
+        <form action="" class="form-login" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Create Tag</legend>
+
+                <p class="form-field required-fld">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                </p>
+
+                <div class="btn-container">
+                    <button type="submit">Create</button>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

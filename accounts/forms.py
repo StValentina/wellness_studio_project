@@ -15,15 +15,19 @@ class AccountUserCreationForm(UserCreationForm):
 
 class LoginUserForm(forms.Form):
     email = forms.EmailField(
+        label='Email',
         widget=forms.EmailInput(
-            attrs={'label': 'Email'}
+            attrs={}
         ),
     )
+
     password = forms.CharField(
+        label='Password',
         widget=forms.PasswordInput(
-            attrs={'label': 'Password'}
+            attrs={}
         ),
     )
+
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
@@ -46,13 +50,18 @@ class AccountEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('first_name', 'last_name', 'profile_picture', 'bio')
+        labels = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'profile_picture': 'Profile Picture',
+            'bio': 'Bio',
+        }
         widgets = {
-            'first_name': forms.TextInput(attrs={'label': 'First Name'}),
-            'last_name': forms.TextInput(attrs={'label': 'Last Name'}),
-            'profile_picture': forms.FileInput(attrs={'label': 'Profile Picture'}),
+            'first_name': forms.TextInput(),
+            'last_name': forms.TextInput(),
+            'profile_picture': forms.FileInput(),
             'bio': forms.Textarea(attrs={
                 'class': 'form-field-bio',
-                'label': 'Bio',
             }),
         }
 

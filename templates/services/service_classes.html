@@ -28,7 +28,7 @@
                     <div class="class-info">
                         <p>{{ class.class_description }}</p>
                         <p>Tags: {% for tag in class.tags.all %}
-                            {{ tag.name }}
+                             {{ tag.name }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}</p>
                     </div>
                 </div>

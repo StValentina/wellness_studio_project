@@ -155,7 +155,7 @@
 .manage-pg-ctr {
     border: 1px solid red;
     margin-top: 75px;
-    min-height: 40vh;
+    min-height: 60vh;
     display: flex;
     align-items: stretch;
     justify-content: center;

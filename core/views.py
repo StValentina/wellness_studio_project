@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from services.models import Service
+from studio_classes.models import StudioClass, Tag
 
 
 # Create your views here.
@@ -10,5 +11,11 @@ def home(request):
 
 def manage_page(request):
     services = Service.objects.all()
-    return render(request, 'core/manage_page.html', {'services': services})
+    classes = StudioClass.objects.all()
+    tags = Tag.objects.all()
+    return render(request, 'core/manage_page.html', {
+        'services': services,
+        'classes': classes,
+        'tags': tags,
+    })
 

@@ -14,19 +14,23 @@ class StudioClassForm(forms.ModelForm):
     class Meta:
         model = StudioClass
         fields = '__all__'
+        labels = {
+            'class_title': 'Studio Class Title',
+            'class_description': 'Studio Class Description',
+            'level': 'Level',
+            'tags': 'Tags',
+        }
         widgets = {
-            'class_title': forms.TextInput(attrs={
-                'label': 'Studio Class Title',
-            }),
+            'class_title': forms.TextInput(),
             'class_description': forms.Textarea(attrs={
                 'class': 'form-field-description',
-                'label': 'Studio Class Description',
             }),
             'level': forms.Select(),
             'tags': forms.SelectMultiple(),
         }
 
-    def __init__(self, *args, **kwargs):
+
+def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['instructor'].queryset = AccountUser.objects.filter(
             profile__role='Instructor'
@@ -46,7 +50,10 @@ class StudioClassDeleteForm(forms.ModelForm):
         return self.cleaned_data
 
 
-class TagCreateForm(forms.ModelForm):
+class TagsForm(forms.ModelForm):
     class Meta:
         model = Tag
-        fields = '__all__'
+        fields = ('name',)
+        labels = {
+            'name': 'Tag Name',
+        }
