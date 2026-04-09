@@ -7,26 +7,55 @@
         <div class="manage-ctr">
             <h3>Practices</h3>
             {% for service in services %}
-                <h4>{{ service.service_title }}</h4>
+                <div class="manage-card">
+                    <h4>{{ service.service_title }}</h4>
+
+                    <div class="action-buttons">
+                        <a href="{% url 'details-service' service.pk %}" class="action-btn-details">Details</a>
+                        <a href="{% url 'edit-service' service.pk %}" class="action-btn-edit">Edit</a>
+                        <a href="{% url 'delete-service' service.pk %}" class="action-btn-delete">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No practices yet.</p>
             {% endfor %}
         </div>
+
         <hr>
+
         <div class="manage-ctr">
             <h3>Studio Classes</h3>
-            {% for class in classes %}
-                {{ class.class_title }}
+            {% for class in studio_classes %}
+                <div class="manage-card">
+                    <h4>{{ class.class_title }}</h4>
+
+                    <div class="action-buttons">
+                        <a href="{% url 'details-class' class.pk %}" class="action-btn-details">Details</a>
+                        <a href="{% url 'edit-class' class.pk %}" class="action-btn-edit">Edit</a>
+                        <a href="{% url 'delete-class' class.pk %}" class="action-btn-delete">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No classes yet.</p>
             {% endfor %}
         </div>
+
         <hr>
+
         <div class="manage-ctr">
             <h3>Tags</h3>
             {% for tag in tags %}
-                {{ tag.name }}
+                <div class="manage-card">
+                    <h4>{{ tag.name }}</h4>
+
+                    <div class="action-buttons">
+                        <a href="{% url 'delete-tag' tag.pk %}" class="action-btn-delete">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No tags yet.</p>
             {% endfor %}
         </div>
     </section>
-{#    <section class="manage-info-ctr">#}
-{#        <h3>Information Section</h3>#}
-{##}
-{#    </section>#}
+
 {% endblock %}

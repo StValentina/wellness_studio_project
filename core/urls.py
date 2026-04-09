@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
+from .views import ManagePageView
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('manage_page', views.manage_page, name='manage_page'),
+    path('manage_page/', ManagePageView.as_view(), name='manage_page'),
 ]

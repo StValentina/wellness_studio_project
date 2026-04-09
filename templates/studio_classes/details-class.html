@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="site-container">
+        <div class="class-container">
+
+            <div class="class-title">
+                <h2>{{ studio_class.class_title }}</h2>
+                <p>{{ studio_class.instructor.profile.get_full_name }}</p>
+            </div>
+
+            <div class="profile-image">
+                <ul class="list-class-info">
+                    <li>Level: {{ studio_class.level }}</li>
+                    <li>Start Time: {{ studio_class.start_time }}</li>
+                    <li>Duration in Minutes: {{ studio_class.duration_minutes }}</li>
+                    <li>Capacity: {{ studio_class.capacity }}</li>
+                    <li>Hall Number: {{ studio_class.hall_number }}</li>
+                    <li>Price: {{ studio_class.price }}</li>
+                </ul>
+            </div>
+            <div class="class-info">
+                <p>{{ studio_class.class_description }}</p>
+                <p>Tags: {% for tag in studio_class.tags.all %}
+                    {{ tag.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}</p>
+            </div>
+        </div>
+        <div class="host-buttons-ctr">
+            {% if request.user.profile.role == 'Host' %}
+                <a href="{% url 'edit-class' studio_class.pk %}" class="general-btn">Edit Class</a>
+                <a href="{% url 'delete-class' studio_class.pk %}" class="delete-serv-btn">Delete Class</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

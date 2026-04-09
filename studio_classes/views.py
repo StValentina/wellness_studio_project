@@ -27,8 +27,8 @@ class StudioClassesEditView(LoginRequiredMixin, HostOnlyMixin, UpdateView):
 
 class StudioClassesDetailsView(LoginRequiredMixin, HostOnlyMixin, DetailView):
     model = StudioClass
-    template_name = ''
-    context_object_name = 'studio-class'
+    template_name = 'studio_classes/details-class.html'
+    context_object_name = 'studio_class'
 
 class StudioClassesDeleteView(LoginRequiredMixin, HostOnlyMixin, DeleteView):
     model = StudioClass
@@ -39,4 +39,9 @@ class TagsCreateView(LoginRequiredMixin, HostOnlyMixin, CreateView):
     model = Tag
     form_class = TagsForm
     template_name = 'tags/create-tag.html'
+    success_url = reverse_lazy('manage_page')
+
+class TagsDeleteView(LoginRequiredMixin, HostOnlyMixin, DeleteView):
+    model = Tag
+    template_name = 'tags/delete-tag.html'
     success_url = reverse_lazy('manage_page')

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{%  load static %}
+{% block content %}
+    <div class="services-container">
+        <div class="profile-container">
+            <div class="profile-image">
+                {% if service.image %}
+                    <img src="{{ service.image.url }}" alt="Avatar">
+                {% else %}
+                    <img src="{% static 'images/lotos-service-image.jpg' %}" alt="Avatar">
+                {% endif %}
+            </div>
+            <div class="profile-info">
+                <div class="title-delete-ctr">
+                    <h1>{{ service.service_title }}</h1>
+                    {% if request.user.profile.role == 'Host' %}
+                        <a href="{% url 'delete-service' pk=service.pk %}" class="delete-serv-btn">Delete</a>
+                    {% endif %}
+                </div>
+                <p> {{ service.service_description }}</p>
+                <div class="profile-info-btn">
+                    <a href="{% url 'service-classes' pk=service.pk %}" class="general-btn">See Classes</a>
+                    {% if request.user.profile.role == 'Host' %}
+                        <a href="{% url 'edit-service' pk=service.pk %}" class="general-btn">Edit Practice</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

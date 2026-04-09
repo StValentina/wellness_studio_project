@@ -8,9 +8,6 @@
                 <div class="class-container">
 
                     <div class="class-title">
-                        {% if not class %}
-                            <h2>There are no classes for this practice yet!</h2>
-                        {% endif %}
                         <h2>{{ class.class_title }}</h2>
                         <p>{{ class.instructor.profile.get_full_name }}</p>
                     </div>

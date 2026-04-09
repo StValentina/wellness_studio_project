@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import request
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 from WellnessNewProject.mixins import HostOnlyMixin
 from services.forms import ServiceCreateForm
@@ -42,6 +42,11 @@ class ServiceDeleteView(LoginRequiredMixin, HostOnlyMixin, DeleteView):
     model = Service
     template_name = 'services/delete-service.html'
     success_url = reverse_lazy('services')
+
+class ServiceDetailView(LoginRequiredMixin, HostOnlyMixin, DetailView):
+    model = Service
+    template_name = 'services/details-service.html'
+    context_object_name = 'service'
 
 class ServiceClassesView(ListView):
     model = StudioClass
