@@ -27,6 +27,10 @@
                         <p>None</p>
                     {% endif %}
                 </section>
+                <div class="profile-info-btn">
+                    <a href="{% url 'edit-profile' pk=user.pk %}" class="edit-profile-btn">Edit Profile</a>
+                    <a href="{% url 'delete-profile' pk=user.pk %}" class="delete-profile-btn">Delete Profile</a>
+                </div>
             </div>
 
         </div>

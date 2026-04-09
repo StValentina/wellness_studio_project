@@ -40,6 +40,10 @@
 }
 
 /*BUTTONS IN a-tag*/
+.nav-link-mng-pg.active {
+    background-color: #599D9C;
+    color: #ffffff;
+}
 
 .join-btn,
 .explore-btn,
@@ -71,6 +75,64 @@
 .yes-btn:hover {
     background-color: darkred;
     color: #ffffff;
+}
+
+
+
+.e-d-btn-ctr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+
+.serv-btn {
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 0.8rem;
+}
+
+.action-btn {
+    padding: 2px 5px;
+    border: none;
+    border-radius: 50px;
+    /*font-weight: bold;*/
+}
+
+.details {
+    background-color: #16796F;
+    color: #fff;
+}
+
+.details:hover {
+    background-color: #599D9C;
+    color: #fff;
+}
+
+.edit,
+.e-btn{
+    background-color: chocolate;
+    color: #fff;
+}
+
+.edit:hover,
+.e-btn:hover {
+    background-color: orange;
+    color: #fff;
+}
+
+.delete,
+.d-btn {
+    background-color: darkred;
+    color: #fff;
+}
+
+.delete:hover,
+.d-btn:hover{
+    background-color: red;
+    color: #fff;
 }
 
 /*CSS FOR PROFILE INFORMATION*/
@@ -131,25 +193,6 @@
     margin-right: 20px;
 }
 
-.delete-serv-btn {
-    padding: 0.5rem;
-    border-radius: 20px;
-    background-color: red;
-    color: #ffffff;
-    border: none;
-    font-size: 0.8rem;
-}
-
-.delete-serv-btn:hover {
-    background-color: darkred;
-    color: #ffffff;
-}
-
-.nav-link-mng-pg.active {
-    background-color: #599D9C;
-    color: #ffffff;
-}
-
 /*MANAGE PAGE*/
 
 .manage-pg-ctr {
@@ -186,43 +229,6 @@ h3 {
     align-items: center;
     justify-content: space-around;
     gap: 10px;
-}
-
-.action-btn {
-    padding: 2px 5px;
-    border: none;
-    border-radius: 50px;
-    /*font-weight: bold;*/
-}
-
-.details {
-    background-color: #16796F;
-    color: #fff;
-}
-
-.details:hover {
-    background-color: #599D9C;
-    color: #fff;
-}
-
-.edit {
-    background-color: chocolate;
-    color: #fff;
-}
-
-.edit:hover {
-    background-color: orange;
-    color: #fff;
-}
-
-.delete {
-    background-color: darkred;
-    color: #fff;
-}
-
-.delete:hover {
-    background-color: red;
-    color: #fff;
 }
 
 /*STUDIO CLASSES*/

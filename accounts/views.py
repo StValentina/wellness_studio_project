@@ -3,7 +3,6 @@ from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.shortcuts import redirect, get_object_or_404, render
-from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -51,6 +50,14 @@ class AccountDetailView(LoginRequiredMixin, DetailView):
     def get_object(self, queryset=None):
         user_id = self.kwargs.get('pk')
         return get_object_or_404(Profile, user__pk=user_id)
+
+class MyProfileView(LoginRequiredMixin, DetailView):
+    model = Profile
+    template_name = 'accounts/my-profile.html'
+    context_object_name = 'profile'
+
+    def get_object(self, queryset=None):
+        return self.request.user.profile
 
 class AccountEditView(LoginRequiredMixin, UpdateView):
     form_class = AccountEditForm

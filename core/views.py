@@ -21,4 +21,3 @@ class ManagePageView(LoginRequiredMixin, HostOnlyMixin, TemplateView):
         context['studio_classes'] = StudioClass.objects.all()
         context['tags'] = Tag.objects.all()
         return context
-

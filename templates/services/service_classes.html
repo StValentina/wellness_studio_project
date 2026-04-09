@@ -9,7 +9,10 @@
 
                     <div class="class-title">
                         <h2>{{ class.class_title }}</h2>
-                        <p>{{ class.instructor.profile.get_full_name }}</p>
+                        <a href="{% url 'detail-profile' class.instructor.profile.user.pk %}">
+                            {{ class.instructor.profile.get_full_name }}
+
+                        </a>
                     </div>
 
                     <div class="profile-image">
@@ -25,16 +28,16 @@
                     <div class="class-info">
                         <p>{{ class.class_description }}</p>
                         <p>Tags: {% for tag in class.tags.all %}
-                             {{ tag.name }}{% if not forloop.last %}, {% endif %}
+                            {{ tag.name }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}</p>
                     </div>
                 </div>
                 <div class="host-buttons-ctr">
                     <a href="#" class="booking-btn">Book for Class</a>
-                    {% if request.user.profile.role == 'Host' %}
-                        <a href="{% url 'edit-class' pk=class.pk %}" class="general-btn">Edit Class</a>
-                        <a href="{% url 'delete-class' pk=class.pk %}" class="delete-serv-btn">Delete Class</a>
-                    {% endif %}
+                    {#                    {% if request.user.profile.role == 'Host' %}#}
+                    {#                        <a href="{% url 'edit-class' pk=class.pk %}" class="general-btn">Edit Class</a>#}
+                    {#                        <a href="{% url 'delete-class' pk=class.pk %}" class="delete-serv-btn">Delete Class</a>#}
+                    {#                    {% endif %}#}
                 </div>
             </div>
         {% endfor %}

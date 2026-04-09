@@ -4,7 +4,6 @@
         <div class="container nav-container">
             <a class="nav-brand" href="{% url 'home' %}">
                 <img src="{% static 'images/site-logo-1.png' %}" alt="Wellness Studio Logo" class="nav-logo">
-                {#                <span class="nav-title">Wellness Studio Platform</span>#}
             </a>
 
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -22,15 +21,12 @@
                     </li>
                     {% if user.is_authenticated %}
                         {% if request.user.profile.role == 'Host' %}
-{#                            <li class="nav-item">#}
-{#                                <a class="nav-link" href="{% url 'create-service' %}">Create Practice</a>#}
-{#                            </li>#}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'manage_page' %}">Manage Page</a>
                             </li>
                         {% endif %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'detail-profile' pk=user.pk %}">Profile</a>
+                            <a class="nav-link" href="{% url 'my_profile' pk=user.pk %}">My Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
