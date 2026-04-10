@@ -26,10 +26,19 @@
                             {{ form.studio_class_service.label_tag }}
                             {{ form.studio_class_service }}
                         </p>
+                        <p class="form-field required-fld select-field">
+                            {{ form.instructor.label_tag }}
+                            {{ form.instructor }}
+                        </p>
 
                     </div>
 
                     <div class="form-right-column">
+                        <p class="form-field required-fld">
+                            {{ form.class_date.label_tag }}
+                            {{ form.class_date }}
+                        </p>
+
                         <p class="form-field required-fld">
                             {{ form.start_time.label_tag }}
                             {{ form.start_time }}
@@ -59,10 +68,7 @@
                             {{ form.tags.label_tag }}
                             {{ form.tags }}
                         </p>
-                        <p class="form-field required-fld select-field">
-                            {{ form.instructor.label_tag }}
-                            {{ form.instructor }}
-                        </p>
+
                     </div>
                     {% if form.errors %}
                         <div class="form-errors">

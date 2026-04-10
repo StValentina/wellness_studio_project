@@ -25,6 +25,16 @@ class StudioClassForm(forms.ModelForm):
             'class_description': forms.Textarea(attrs={
                 'class': 'form-field-description',
             }),
+            'class_date': forms.DateInput(
+                attrs={
+                    'type': 'date',
+                }
+            ),
+            'start_time': forms.TimeInput(
+                attrs={
+                    'type': 'time',
+                }
+            ),
             'level': forms.Select(),
             'tags': forms.SelectMultiple(),
         }
