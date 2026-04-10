@@ -86,6 +86,7 @@
 }
 
 .serv-btn {
+    margin-bottom: 5px;
     padding: 0.5rem;
     border-radius: 20px;
     border: none;
@@ -110,7 +111,7 @@
 }
 
 .edit,
-.e-btn{
+.e-btn {
     background-color: chocolate;
     color: #fff;
 }
@@ -128,7 +129,7 @@
 }
 
 .delete:hover,
-.d-btn:hover{
+.d-btn:hover {
     background-color: red;
     color: #fff;
 }
@@ -433,4 +434,27 @@ legend {
         font-size: 1.1em;
         border-radius: 10px;
     }
+}
+
+
+/*MY BOOKINGS*/
+
+.my-book-h1 {
+    text-align: center;
+    color: #16796F;
+    font-size: 34px;
+}
+
+.profile-image li{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.book-buttons-ctr {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

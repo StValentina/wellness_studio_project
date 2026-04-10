@@ -26,7 +26,7 @@ class StudioClassesEditView(LoginRequiredMixin, HostOnlyMixin, UpdateView):
     template_name = 'studio_classes/edit-class.html'
     success_url = reverse_lazy('manage_page')
 
-class StudioClassesDetailsView(LoginRequiredMixin, HostOnlyMixin, DetailView):
+class StudioClassesDetailsView(LoginRequiredMixin, DetailView):
     model = StudioClass
     template_name = 'studio_classes/details-class.html'
     context_object_name = 'studio_class'
