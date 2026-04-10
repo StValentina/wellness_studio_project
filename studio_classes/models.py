@@ -16,6 +16,7 @@ class StudioClass(models.Model):
     duration_minutes = models.PositiveIntegerField(
         validators=[MinValueValidator(30)],
     )
+    class_date = models.DateField(null=True, blank=True)
     start_time = models.TimeField()
     hall_number = models.PositiveIntegerField(
         validators=[MinValueValidator(1)],
