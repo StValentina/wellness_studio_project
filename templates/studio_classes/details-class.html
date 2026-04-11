@@ -23,9 +23,15 @@
             </div>
             <div class="class-info">
                 <p>{{ studio_class.class_description }}</p>
-                <p>Tags: {% for tag in studio_class.tags.all %}
-                    {{ tag.name }}{% if not forloop.last %}, {% endif %}
-                {% endfor %}</p>
+                <p>Tags: {{ studio_class.tags.all|join:", " }}</p>
+
+                {% if avg_rating %}
+                    <a href="{% url 'class-reviews' studio_class.pk %}">
+                        Average Rating: {{ avg_rating|floatformat:1 }} / 5
+                    </a>
+                {% else %}
+                    <p>Average Rating: No ratings yet</p>
+                {% endif %}
             </div>
         </div>
         <div class="host-buttons-ctr">
@@ -40,6 +46,7 @@
                     <button type="submit" class="booking-btn">Book for Class</button>
                 </form>
             {% endif %}
+            <a href="{% url 'create-review' studio_class.pk %}" class="general-btn">Make a Review</a>
             {% if request.user.profile.role == 'Host' %}
                 <a href="{% url 'edit-class' studio_class.pk %}" class="serv-btn e-btn">Edit Class</a>
                 <a href="{% url 'delete-class' studio_class.pk %}" class="serv-btn d-btn">Delete Class</a>

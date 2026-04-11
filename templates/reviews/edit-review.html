@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <form action="" class="form-login" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Edit Review</legend>
+
+                <p class="form-field-description required-fld">
+                    {{ form.review_text.label_tag }}
+                    {{ form.review_text }}
+                </p>
+
+                <p class="form-field required-fld select-field">
+                    {{ form.rating.label_tag }}
+                    {{ form.rating }}
+                </p>
+
+                {% if form.errors %}
+                    <div class="form-errors">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+
+                <div class="btn-container">
+                    <button type="submit">Edit</button>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

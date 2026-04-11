@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+        <h1 class="my-book-h1">Reviews for {{ studio_class.class_title }}</h1>
+        <div class="class-review-container">
+
+            {% for review in reviews %}
+                <div class="review-container">
+                    <div class="review-text-rating">
+                        <p>{{ review.user.profile.get_full_name }}</p>
+                        <p>{{ review.rating }}</p>
+                    </div>
+                    <div class="review-text">
+                        <p>{{ review.review_text }}</p>
+                    </div>
+                    <div class="review-buttons">
+                        {% if request.user == review.user %}
+                            <a href="{% url 'edit-review' review.pk %}" class="serv-btn e-btn">E</a>
+                            <a href="{% url 'delete-review' review.pk %}" class="serv-btn d-btn">D</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="general-btn">Previous</a>
+            {% endif %}
+
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="general-btn">Next</a>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

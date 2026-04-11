@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 class Review(models.Model):
-    review = models.TextField()
+    review_text = models.TextField()
     user = models.ForeignKey(
         'accounts.AccountUser',
         on_delete=models.CASCADE

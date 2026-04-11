@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <div class="form-container">
-        <form action="{% url 'delete-class' pk=studioclass.pk %}" class="form-login profile-dlt" method="post">
+        <form action="{% url 'delete-class' studioclass.pk %}" class="form-login profile-dlt" method="post">
             <h1>Delete Practice</h1>
             {% csrf_token %}
             <p><strong>Are you sure you want to delete "{{ studioclass.class_title }}"?</strong></p>
@@ -18,9 +14,4 @@
             </div>
         </form>
     </div>
-{% endblock %}</title>
-</head>
-<body>
-
-</body>
-</html>
+{% endblock %}

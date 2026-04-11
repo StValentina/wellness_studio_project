@@ -87,7 +87,7 @@
 
 .serv-btn {
     margin-bottom: 5px;
-    padding: 0.5rem;
+    padding: 0.3rem;
     border-radius: 20px;
     border: none;
     font-size: 0.8rem;
@@ -457,4 +457,49 @@ legend {
     align-items: center;
     justify-content: center;
     gap: 10px;
+}
+
+/*REVIEWS*/
+
+.class-review-container {
+    padding: 1.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 45px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.review-container {
+    width: 300px;
+    border-right: 2px solid #16796F;
+    border-bottom: 2px solid #16796F;
+    border-bottom-right-radius: 30px;
+}
+
+.review-text-rating {
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.review-text {
+    font-size: 14px;
+    padding: 0 1em;
+}
+
+.review-buttons {
+    padding: 1em;
+}
+
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 55px;
+    margin-bottom: 10px;
 }
