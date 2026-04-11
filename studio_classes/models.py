@@ -35,12 +35,12 @@ class StudioClass(models.Model):
     )
     tags = models.ManyToManyField(
         'Tag',
-        related_name='studio_classes',  # tag.studio_classes.all()
+        related_name='studio_classes',
     )
     instructor = models.ForeignKey(
         'accounts.AccountUser',
         on_delete=models.CASCADE,
-        related_name='studio_classes',  #user.studio_classes.all()
+        related_name='studio_classes',
     )
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

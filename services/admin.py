@@ -7,4 +7,5 @@ from services.models import Service
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['service_title','service_description',]
+    search_fields = ['service_title',]

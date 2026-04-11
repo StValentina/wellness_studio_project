@@ -7,4 +7,4 @@ from bookings.models import Booking
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['user', 'booked_class']

@@ -7,4 +7,5 @@ from reviews.models import Review
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['review_text', 'rating']
+    list_filter = ['review_class']
