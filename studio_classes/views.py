@@ -8,7 +8,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView,
 from WellnessNewProject.mixins import HostOnlyMixin
 from bookings.models import Booking
 from reviews.models import Review
-from studio_classes.forms import StudioClassForm, TagsForm
+from studio_classes.forms import StudioClassForm, TagsForm, StudioClassDeleteForm
 from studio_classes.models import StudioClass, Tag
 
 
@@ -50,8 +50,14 @@ class StudioClassesDetailsView(LoginRequiredMixin, DetailView):
 
 class StudioClassesDeleteView(LoginRequiredMixin, HostOnlyMixin, DeleteView):
     model = StudioClass
+    form_class = StudioClassDeleteForm
     template_name = 'studio_classes/delete-class.html'
     success_url = reverse_lazy('manage_page')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = StudioClassDeleteForm(instance=self.object)
+        return context
 
 class ClassReviewListView(ListView):
     model = Review

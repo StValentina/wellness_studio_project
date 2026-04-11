@@ -2,16 +2,78 @@
 
 {% block content %}
     <div class="form-container">
-        <form action="{% url 'delete-class' studioclass.pk %}" class="form-login profile-dlt" method="post">
-            <h1>Delete Practice</h1>
+        <form action="" class="form-login profile-dlt" method="post">
             {% csrf_token %}
-            <p><strong>Are you sure you want to delete "{{ studioclass.class_title }}"?</strong></p>
-            <div class="profile-info-btn">
-                <a href="#" class="yes-btn" onclick="this.closest('form').submit(); return false;">
-                    Yes
-                </a>
-                <a href="{% url 'services' %}" class="no-btn">No</a>
-            </div>
+            <fieldset>
+                <legend>Delete Class</legend>
+                <div class="form-create-class">
+                    <div class="form-left-column">
+                        <p class="form-field">
+                            {{ form.class_title.label_tag }}
+                            {{ form.class_title }}
+                        </p>
+
+                        <p class="form-field-description">
+                            {{ form.class_description.label_tag }}
+                            {{ form.class_description }}
+                        </p>
+
+                        <p class="form-field required-fld">
+                            {{ form.level.label_tag }}
+                            {{ form.level }}
+                        </p>
+                        <p class="form-field required-fld">
+                            {{ form.studio_class_service.label_tag }}
+                            {{ form.studio_class_service }}
+                        </p>
+                        <p class="form-field required-fld">
+                            {{ form.instructor.label_tag }}
+                            {{ form.instructor }}
+                        </p>
+
+                    </div>
+
+                    <div class="form-right-column">
+                        <p class="form-field">
+                            {{ form.class_date.label_tag }}
+                            {{ form.class_date }}
+                        </p>
+
+                        <p class="form-field">
+                            {{ form.start_time.label_tag }}
+                            {{ form.start_time }}
+                        </p>
+
+                        <p class="form-field">
+                            {{ form.duration_minutes.label_tag }}
+                            {{ form.duration_minutes }}
+                        </p>
+
+                        <p class="form-field">
+                            {{ form.hall_number.label_tag }}
+                            {{ form.hall_number }}
+                        </p>
+
+                        <p class="form-field">
+                            {{ form.capacity.label_tag }}
+                            {{ form.capacity }}
+                        </p>
+
+                        <p class="form-field">
+                            {{ form.price.label_tag }}
+                            {{ form.price }}
+                        </p>
+
+                        <p class="form-field select-field">
+                            {{ form.tags.label_tag }}
+                            {{ form.tags }}
+                        </p>
+                    </div>
+                </div>
+
+                <button type="submit" class="yes-btn">Delete</button>
+
+            </fieldset>
         </form>
     </div>
 {% endblock %}
