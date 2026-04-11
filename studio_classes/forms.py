@@ -54,7 +54,7 @@ class StudioClassDeleteForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['readonly'] = True
+            field.widget.attrs['disabled'] = True
 
     def clean(self):
         return self.cleaned_data
