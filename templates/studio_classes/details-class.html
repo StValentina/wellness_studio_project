@@ -6,7 +6,9 @@
 
             <div class="class-title">
                 <h2>{{ studio_class.class_title }}</h2>
-                <p>{{ studio_class.instructor.profile.get_full_name }}</p>
+                <a href="{% url 'detail-profile' studio_class.instructor.profile.user.pk %}">
+                    {{ studio_class.instructor.profile.get_full_name }}
+                </a>
             </div>
 
             <div class="profile-image">
@@ -27,6 +29,17 @@
             </div>
         </div>
         <div class="host-buttons-ctr">
+            {% if is_booked %}
+                <form method="post" action="{% url 'cancel-booking' studio_class.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="booking-btn">Cancel booking</button>
+                </form>
+            {% else %}
+                <form method="post" action="{% url 'book-class' studio_class.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="booking-btn">Book for Class</button>
+                </form>
+            {% endif %}
             {% if request.user.profile.role == 'Host' %}
                 <a href="{% url 'edit-class' studio_class.pk %}" class="serv-btn e-btn">Edit Class</a>
                 <a href="{% url 'delete-class' studio_class.pk %}" class="serv-btn d-btn">Delete Class</a>

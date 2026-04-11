@@ -58,13 +58,3 @@ class ServiceClassesView(ListView):
         service_id = self.kwargs['pk']
         return StudioClass.objects.filter(studio_class_service=service_id)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        if self.request.user.is_authenticated:
-            context['booked_class_ids'] = set(
-                Booking.objects.filter(user=self.request.user)
-                .values_list('booked_class_id', flat=True)
-            )
-        else:
-            context['booked_class_ids'] = set()
-        return context

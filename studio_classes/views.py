@@ -31,6 +31,14 @@ class StudioClassesDetailsView(LoginRequiredMixin, DetailView):
     template_name = 'studio_classes/details-class.html'
     context_object_name = 'studio_class'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_booked'] = Booking.objects.filter(
+            user=self.request.user,
+            booked_class=self.object,
+        ).exists()
+        return context
+
 class StudioClassesDeleteView(LoginRequiredMixin, HostOnlyMixin, DeleteView):
     model = StudioClass
     template_name = 'studio_classes/delete-class.html'
