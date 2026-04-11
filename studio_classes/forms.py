@@ -59,6 +59,34 @@ class StudioClassDeleteForm(forms.ModelForm):
     def clean(self):
         return self.cleaned_data
 
+class InstructorClassEditForm(forms.ModelForm):
+    disabled_fields = ['hall_number', 'price', 'capacity', 'studio_class_service', 'instructor',]
+
+    class Meta:
+        model = StudioClass
+        fields = '__all__'
+        widgets = {
+            'class_date': forms.DateInput(
+                attrs={
+                    'type': 'date',
+                }
+            ),
+            'start_time': forms.TimeInput(
+                attrs={
+                    'type': 'time',
+                }
+            ),
+            'level': forms.Select(),
+            'tags': forms.SelectMultiple(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name in self.disabled_fields:
+            self.fields[field_name].disabled = True
+
+    def clean(self):
+        return self.cleaned_data
 
 class TagsForm(forms.ModelForm):
     class Meta:

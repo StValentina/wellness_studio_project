@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% for studio_class in classes %}
+        <div class="class-outer-container">
+            <div class="class-container">
+
+                <div class="class-title">
+                    <h2>{{ studio_class.class_title }}</h2>
+                </div>
+
+                <div class="profile-image">
+                    <ul class="list-class-info">
+                        <li>Level: {{ studio_class.level }}</li>
+                        <li>Date: {{ studio_class.class_date }}</li>
+                        <li>Start Time: {{ studio_class.start_time }}</li>
+                        <li>Duration in Minutes: {{ studio_class.duration_minutes }}</li>
+                        <li>Capacity: {{ studio_class.capacity }}</li>
+                        <li>Hall Number: {{ studio_class.hall_number }}</li>
+                        <li>Price: {{ studio_class.price }}</li>
+                    </ul>
+                </div>
+                <div class="class-info">
+                    <p>{{ studio_class.class_description }}</p>
+                    <p>Tags: {{ studio_class.tags.all|join:", " }}</p>
+
+                    {% if avg_rating %}
+                        <a href="{% url 'class-reviews' studio_class.pk %}">
+                            Average Rating: {{ avg_rating|floatformat:1 }} / 5
+                        </a>
+                    {% else %}
+                        <p>Average Rating: No ratings yet</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="host-buttons-ctr">
+                <a href="{% url 'edit-class' studio_class.pk %}" class="serv-btn e-btn">Edit Class</a>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}

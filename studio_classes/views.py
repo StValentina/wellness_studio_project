@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
 from django.db.models.aggregates import Avg
 from django.shortcuts import get_object_or_404
@@ -8,7 +9,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView,
 from WellnessNewProject.mixins import HostOnlyMixin
 from bookings.models import Booking
 from reviews.models import Review
-from studio_classes.forms import StudioClassForm, TagsForm, StudioClassDeleteForm
+from studio_classes.forms import StudioClassForm, TagsForm, StudioClassDeleteForm, InstructorClassEditForm
 from studio_classes.models import StudioClass, Tag
 
 
@@ -23,11 +24,22 @@ class StudioClassesCreateView(LoginRequiredMixin, HostOnlyMixin, CreateView):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
-class StudioClassesEditView(LoginRequiredMixin, HostOnlyMixin, UpdateView):
+class StudioClassesEditView(LoginRequiredMixin, UpdateView):
     model = StudioClass
-    form_class = StudioClassForm
     template_name = 'studio_classes/edit-class.html'
-    success_url = reverse_lazy('manage_page')
+
+    def get_form_class(self):
+        profile = self.request.user.profile
+
+        if profile.role == 'Host':
+            return StudioClassForm
+        elif profile.role == 'Instructor':
+            return InstructorClassEditForm
+
+        raise PermissionDenied
+
+    def get_success_url(self):
+        return reverse_lazy('details-class', kwargs={'pk': self.object.pk})
 
 class StudioClassesDetailsView(LoginRequiredMixin, DetailView):
     model = StudioClass
@@ -73,6 +85,16 @@ class ClassReviewListView(ListView):
         context = super().get_context_data(**kwargs)
         context['studio_class'] = self.studio_class
         return context
+
+class InstructorClassListView(LoginRequiredMixin, ListView):
+    model = StudioClass
+    template_name = 'studio_classes/instructor-classes.html'
+    context_object_name = 'classes'
+
+    def get_queryset(self):
+        return StudioClass.objects.filter(
+            instructor=self.request.user
+        )
 
 class TagsCreateView(LoginRequiredMixin, HostOnlyMixin, CreateView):
     model = Tag

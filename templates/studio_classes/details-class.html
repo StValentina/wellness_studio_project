@@ -14,6 +14,7 @@
             <div class="profile-image">
                 <ul class="list-class-info">
                     <li>Level: {{ studio_class.level }}</li>
+                    <li>Date: {{ studio_class.class_date }}</li>
                     <li>Start Time: {{ studio_class.start_time }}</li>
                     <li>Duration in Minutes: {{ studio_class.duration_minutes }}</li>
                     <li>Capacity: {{ studio_class.capacity }}</li>
@@ -47,10 +48,10 @@
                 </form>
             {% endif %}
             <a href="{% url 'create-review' studio_class.pk %}" class="general-btn">Make a Review</a>
-            {% if request.user.profile.role == 'Host' %}
-                <a href="{% url 'edit-class' studio_class.pk %}" class="serv-btn e-btn">Edit Class</a>
-                <a href="{% url 'delete-class' studio_class.pk %}" class="serv-btn d-btn">Delete Class</a>
-            {% endif %}
+{#            {% if request.user.profile.role == 'Host' %}#}
+{#                <a href="{% url 'edit-class' studio_class.pk %}" class="serv-btn e-btn">Edit Class</a>#}
+{#                <a href="{% url 'delete-class' studio_class.pk %}" class="serv-btn d-btn">Delete Class</a>#}
+{#            {% endif %}#}
         </div>
     </div>
 {% endblock %}
