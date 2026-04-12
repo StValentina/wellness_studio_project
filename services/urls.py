@@ -4,7 +4,7 @@ from services.views import ServiceListView, ServiceCreateView, ServiceEditView, 
     ServiceDetailView
 
 urlpatterns = [
-    path('', ServiceListView.as_view(), name='list-service'),
+    path('', ServiceListView.as_view(), name='list-services'),
     path('create/', ServiceCreateView.as_view(), name='create-service'),
     path('dashboard/', ServiceListView.as_view(), name='services'),
     path('edit/<int:pk>/', ServiceEditView.as_view(), name='edit-service'),

@@ -10,7 +10,7 @@ from reviews.models import Review
 
 # Create your views here.
 
-class ReviewCreateView(CreateView):
+class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review
     form_class = ReviewForm
     template_name = 'reviews/create-review.html'
@@ -23,7 +23,7 @@ class ReviewCreateView(CreateView):
     def get_success_url(self):
         return reverse_lazy('details-class', kwargs={'pk': self.kwargs['pk']})
 
-class ReviewEditView(UpdateView):
+class ReviewEditView(LoginRequiredMixin, UpdateView):
     model = Review
     form_class = ReviewForm
     template_name = 'reviews/edit-review.html'

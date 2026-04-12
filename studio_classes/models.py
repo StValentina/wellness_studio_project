@@ -51,6 +51,8 @@ class StudioClass(models.Model):
     instructor = models.ForeignKey(
         'accounts.AccountUser',
         on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
         related_name='studio_classes',
     )
     is_active = models.BooleanField(default=True)
