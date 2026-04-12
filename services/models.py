@@ -1,3 +1,4 @@
+from django.core.validators import MinLengthValidator
 from django.db import models
 from WellnessNewProject.validators import MaxFileSizeValidator
 from accounts.models import AccountUser
@@ -7,10 +8,16 @@ from accounts.models import AccountUser
 class Service(models.Model):
     service_title = models.CharField(
         max_length=100,
+        validators=[
+            MinLengthValidator(3),
+        ],
         help_text='Keep it catchy! Maximum 100 characters.'
     )
     service_description = models.TextField(
         max_length=1000,
+        validators=[
+          MinLengthValidator(20),
+        ],
         help_text='Provide a detailed overview of what the service includes. Max 1000 characters.'
     )
     image = models.ImageField(

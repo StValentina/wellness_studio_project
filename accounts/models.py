@@ -40,14 +40,16 @@ class Profile(models.Model):
 
     first_name = models.CharField(
         max_length=50,
-        blank=True,
-        null=True,
+        validators=[
+            MinLengthValidator(2),
+        ]
     )
 
     last_name = models.CharField(
         max_length=50,
-        blank=True,
-        null=True,
+        validators=[
+            MinLengthValidator(2),
+        ]
     )
 
     profile_picture = models.ImageField(
@@ -58,8 +60,8 @@ class Profile(models.Model):
     )
 
     bio = models.TextField(
-        null=True,
-        blank=True,
+        max_length=500,
+        blank=True
     )
 
     role = models.CharField(
