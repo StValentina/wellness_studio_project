@@ -21,7 +21,9 @@ class StudioClassesCreateView(LoginRequiredMixin, HostOnlyMixin, CreateView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        if not form.instance.pk:
+            form.instance.created_by = self.request.user
+        form.instance.updated_by = self.request.user
         return super().form_valid(form)
 
 class StudioClassesEditView(LoginRequiredMixin, UpdateView):
@@ -37,6 +39,10 @@ class StudioClassesEditView(LoginRequiredMixin, UpdateView):
             return InstructorClassEditForm
 
         raise PermissionDenied
+
+    def form_valid(self, form):
+        form.instance.updated_by = self.request.user
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse_lazy('details-class', kwargs={'pk': self.object.pk})

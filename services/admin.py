@@ -7,5 +7,5 @@ from services.models import Service
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['service_title','service_description',]
+    list_display = ['service_title', 'service_description', 'created_by', 'created_at', 'updated_by', 'updated_at']
     search_fields = ['service_title',]

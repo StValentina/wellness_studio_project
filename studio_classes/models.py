@@ -56,7 +56,24 @@ class StudioClass(models.Model):
         related_name='studio_classes',
     )
     is_active = models.BooleanField(default=True)
+    created_by = models.ForeignKey(
+        'accounts.AccountUser',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='created_services',
+        editable=False,
+    )
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_by = models.ForeignKey(
+        'accounts.AccountUser',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='updated_services',
+        editable=False,
+    )
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.class_title

@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'studio_classes',
     'bookings',
     'reviews',
-
     'rest_framework'
 ]
 

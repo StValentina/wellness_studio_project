@@ -30,7 +30,8 @@ class ServiceCreateView(LoginRequiredMixin, HostOnlyMixin, CreateView):
     success_url = reverse_lazy('services')
 
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        if not form.instance.pk:
+            form.instance.created_by = self.request.user
         return super().form_valid(form)
 
 class ServiceEditView(LoginRequiredMixin, HostOnlyMixin, UpdateView):
@@ -38,6 +39,10 @@ class ServiceEditView(LoginRequiredMixin, HostOnlyMixin, UpdateView):
     form_class = ServiceCreateForm
     template_name = 'services/edit-service.html'
     success_url = reverse_lazy('services')
+
+    def form_valid(self, form):
+        form.instance.updated_by = self.request.user
+        return super().form_valid(form)
 
 class ServiceDeleteView(LoginRequiredMixin, HostOnlyMixin, DeleteView):
     model = Service

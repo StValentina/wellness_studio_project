@@ -8,7 +8,7 @@ from studio_classes.models import StudioClass
 
 @admin.register(StudioClass)
 class StudioClassAdmin(admin.ModelAdmin):
-    list_display = ['class_title','class_date', 'start_time', 'instructor']
+    list_display = ['class_title','class_date', 'start_time', 'instructor', 'created_by', 'created_at', 'updated_by', 'updated_at']
     fieldsets = [
         (
             'Studio Class Information',

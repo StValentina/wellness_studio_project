@@ -40,7 +40,7 @@ class StudioClassForm(forms.ModelForm):
         }
 
 
-def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['instructor'].queryset = AccountUser.objects.filter(
             profile__role='Instructor'
@@ -64,7 +64,7 @@ class InstructorClassEditForm(forms.ModelForm):
 
     class Meta:
         model = StudioClass
-        fields = '__all__'
+        exclude = ['created_by']
         widgets = {
             'class_date': forms.DateInput(
                 attrs={

@@ -27,7 +27,24 @@ class Service(models.Model):
         validators=[MaxFileSizeValidator(5 * 1024 * 1024)]
     )
     is_active = models.BooleanField(default=True)
+    created_by = models.ForeignKey(
+        'accounts.AccountUser',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='created_classes',
+        editable=False,
+    )
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_by = models.ForeignKey(
+        'accounts.AccountUser',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='updated_classes',
+        editable=False,
+    )
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.service_title
