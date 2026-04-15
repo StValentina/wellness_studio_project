@@ -402,6 +402,10 @@ legend {
     border-radius: 5px;
 }
 
+/*ERROR PAGES*/
+
+
+
 @media (max-width: 600px) {
     .form-container {
         padding: 1em;

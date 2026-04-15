@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="error-page">
+        <h1>500</h1>
+        <h2>Something went wrong</h2>
+        <p>We are working on fixing the issue. Please try again later.</p>
+        <a href="{% url 'home' %}">Go back home</a>
+    </div>
+{% endblock %}
