@@ -36,22 +36,25 @@
             </div>
         </div>
         <div class="host-buttons-ctr">
-            {% if is_booked %}
-                <form method="post" action="{% url 'cancel-booking' studio_class.pk %}">
-                    {% csrf_token %}
-                    <button type="submit" class="booking-btn">Cancel booking</button>
-                </form>
-            {% else %}
-                <form method="post" action="{% url 'book-class' studio_class.pk %}">
-                    {% csrf_token %}
-                    <button type="submit" class="booking-btn">Book for Class</button>
-                </form>
+            {% if not studio_class.is_past %}
+                {% if is_booked %}
+                    <form method="post" action="{% url 'cancel-booking' studio_class.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="booking-btn">Cancel booking</button>
+                    </form>
+                {% else %}
+
+                    <form method="post" action="{% url 'book-class' studio_class.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="booking-btn">Book for Class</button>
+                    </form>
+                {% endif %}
             {% endif %}
             <a href="{% url 'create-review' studio_class.pk %}" class="general-btn">Make a Review</a>
-{#            {% if request.user.profile.role == 'Host' %}#}
-{#                <a href="{% url 'edit-class' studio_class.pk %}" class="serv-btn e-btn">Edit Class</a>#}
-{#                <a href="{% url 'delete-class' studio_class.pk %}" class="serv-btn d-btn">Delete Class</a>#}
-{#            {% endif %}#}
+            {#            {% if request.user.profile.role == 'Host' %}#}
+            {#                <a href="{% url 'edit-class' studio_class.pk %}" class="serv-btn e-btn">Edit Class</a>#}
+            {#                <a href="{% url 'delete-class' studio_class.pk %}" class="serv-btn d-btn">Delete Class</a>#}
+            {#            {% endif %}#}
         </div>
     </div>
 {% endblock %}

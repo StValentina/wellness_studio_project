@@ -1,5 +1,6 @@
 from django.core.validators import MinValueValidator, MinLengthValidator
 from django.db import models
+from django.utils import timezone
 
 from studio_classes.choices import LevelClassChoices
 
@@ -77,6 +78,9 @@ class StudioClass(models.Model):
 
     def __str__(self):
         return self.class_title
+
+    def is_past(self):
+        return self.class_date < timezone.now().date()
 
 class Tag(models.Model):
     name = models.CharField(
