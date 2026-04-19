@@ -7,7 +7,7 @@ from django.core.validators import MinLengthValidator
 from accounts.choices import RoleChoices
 from accounts.manager import AccountUserManager
 from WellnessNewProject.validators import MaxFileSizeValidator
-
+from django_resized import ResizedImageField
 
 # Create your models here.
 
@@ -52,11 +52,12 @@ class Profile(models.Model):
         ]
     )
 
-    profile_picture = models.ImageField(
-        blank=True,
-        null=True,
+    profile_picture = ResizedImageField(
+        size=[600, 600],
+        quality=85,
         upload_to="profile_pictures/",
-        validators=[MaxFileSizeValidator(5 * 1024 * 1024)]
+        null=True,
+        blank=True,
     )
 
     bio = models.TextField(

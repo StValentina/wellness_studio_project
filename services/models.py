@@ -2,6 +2,7 @@ from django.core.validators import MinLengthValidator
 from django.db import models
 from WellnessNewProject.validators import MaxFileSizeValidator
 from accounts.models import AccountUser
+from django_resized import ResizedImageField
 
 
 # Create your models here.
@@ -20,11 +21,12 @@ class Service(models.Model):
         ],
         help_text='Provide a detailed overview of what the service includes. Max 1000 characters.'
     )
-    image = models.ImageField(
+    image = ResizedImageField(
+        size=[600, 600],
+        quality=85,
         upload_to='services/',
-        blank=True,
         null=True,
-        validators=[MaxFileSizeValidator(5 * 1024 * 1024)]
+        blank=True,
     )
     is_active = models.BooleanField(default=True)
     created_by = models.ForeignKey(
