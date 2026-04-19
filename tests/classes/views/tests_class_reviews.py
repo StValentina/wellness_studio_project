@@ -1,4 +1,4 @@
-from datetime import time
+from datetime import time, date
 
 from django.contrib.auth import get_user_model
 from django.test import TestCase
@@ -22,6 +22,7 @@ class ClassReviewListTests(TestCase):
             instructor=user,
             duration_minutes=60,
             start_time=time(10, 0),
+            class_date=date.today(),
             hall_number=1,
             capacity=10,
             price=20,
