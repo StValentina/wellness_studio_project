@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+    {% if classes %}
     {% for studio_class in classes %}
         <div class="class-outer-container">
             <div class="class-container">
@@ -38,6 +39,8 @@
                 <a href="{% url 'edit-class' studio_class.pk %}" class="serv-btn e-btn">Edit Class</a>
             </div>
         </div>
-
     {% endfor %}
+     {% else %}
+        <h1 class="my-book-h1">You don't have any classes yet.</h1>
+    {% endif %}
 {% endblock %}
