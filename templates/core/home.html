@@ -6,7 +6,9 @@
             <h1 class="home-title">Wellness Studio Platform</h1>
             <p class="home-text">Find your balance. Book your next class. Transform your lifestyle.</p>
             <div class="home-content-btn">
-                <a href="{% url 'login' %}" class="join-btn">Join Now</a>
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url 'login' %}" class="join-btn">Join Now</a>
+                {% endif %}
                 <a href="{% url 'list-services' %}" class="explore-btn">Start Your Journey</a>
             </div>
         </div>
