@@ -8,8 +8,6 @@ A Django-based web application for managing wellness studio activities, includin
 
 **Wellness Studio Platform** is a full-stack web application built with Django that allows users to explore, book, and manage wellness classes such as yoga, meditation, and fitness sessions.
 
-The system supports different user roles and provides a complete booking workflow, including asynchronous email notifications and REST API endpoints.
-
 ---
 
 ## 🚀 Features
@@ -23,8 +21,8 @@ The system supports different user roles and provides a complete booking workflo
 The application supports multiple user roles with different permissions:
 
 - **Admin** – full access to the system via Django admin panel
-- **Host** – can create, edit, delete and manage platform
-- **Instructor** – can edit classes
+- **Host** – can create, edit, delete services (practices) and classes via manage platform
+- **Instructor** – can edit classes related to him
 - **Participant** – can browse classes, make bookings, and leave reviews
 
 ### 🧾 Services & Classes
@@ -66,7 +64,6 @@ The application supports multiple user roles with different permissions:
 * API endpoints for:
   * Services
   * Classes
-
 ---
 
 ## 🏗️ Project Structure
@@ -86,8 +83,9 @@ The application is organized into multiple Django apps:
 
 * Relational database (PostgreSQL recommended)
 * Includes:
-  * Many-to-One relationships (Profile → User; Class → Service; CLass → User; Review → User; Review → Class; Booking → User; Booking → Class)
-  * Many-to-Many relationships (Services ↔ Class; Class ↔ Tags)
+  * One-to-One relationships (e.g. Profile → User)
+  * Many-to-One relationships (e.g. Class → Service; CLass → User; Review → User; Review → Class; Booking → User; Booking → Class)
+  * Many-to-Many relationships (e.g. Services ↔ Class; Class ↔ Tags)
   
 ![welness_DB_schema.png](static/images/welness_DB_schema.png)
 ---
