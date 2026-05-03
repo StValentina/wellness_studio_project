@@ -1,3 +1,6 @@
+
+**Exam Project for "Django Advanced" in SoftUni** – February 2026
+
 # 🧘 Wellness Studio Platform
 
 A Django-based web application for managing wellness studio activities, including class scheduling, bookings, reviews, and user roles.
