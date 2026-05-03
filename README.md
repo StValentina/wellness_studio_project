@@ -1,12 +1,3 @@
-**The project is accessible at**: https://wellness-studio-g6c4auape4eje7bz.switzerlandnorth-01.azurewebsites.net/
-
-Some emails and passwords, available during assessment:
-- **Admin** – admin@studio.bg // admin@#123
-- **Host** – val@abv.bg // val@#123
-- **Instructor** – instructor@abv.bg // insta@#123 ; petya@abv.bg // petya@#123
-- **Participant** – bali@abv.bg // bali@#123
----
-
 # 🧘 Wellness Studio Platform
 
 A Django-based web application for managing wellness studio activities, including class scheduling, bookings, reviews, and user roles.
